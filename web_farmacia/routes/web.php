@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use app\Http\Controllers;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
