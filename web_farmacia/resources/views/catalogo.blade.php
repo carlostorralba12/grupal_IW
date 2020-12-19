@@ -1,21 +1,18 @@
 
+@extends('layouts.app')
+
+@section('content')
 
 
-<title>Catalogo</title>
-<h3></h3>
-<div id="principal">
-
+<div class="container">
+<h2 style="text-align:center">Catálogo</h2>
     <div class="tabla">
         <table>
             <tr>
                 @foreach($productos as $juguete)
                 <th>
-                    
-                   
-                        
-                       
-                        <h3>{{$juguete->nombre}}</h3>
-                        <p id="precio">{{$juguete->pvp}}€</p>
+                    <h3>{{$juguete->nombre}}</h3>
+                    <p id="precio">{{$juguete->pvp}}€</p>
                     
                 </th>
                 @endforeach
@@ -24,3 +21,5 @@
     </div>
     
 </div>
+
+@endsection
