@@ -17,5 +17,7 @@ use app\Http\Controllers;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', 'App\Http\Controllers\LoginController@showForm');
-Route::get('/register', 'App\Http\Controllers\RegisterController@showForm');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
