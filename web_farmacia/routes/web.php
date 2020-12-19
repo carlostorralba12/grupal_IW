@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use app\Http\Controllers;
+
 
 
 /*
@@ -17,5 +17,15 @@ use app\Http\Controllers;
 */
 
 
+
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');

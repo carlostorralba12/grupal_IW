@@ -14,5 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(ProductsTableSeeder::class);
+        // Llamamos a otro fichero de semillas
+        $this->call(UsersTableSeeder::class);
+        // Mostramos información por consola
+        $this->command->info('User table seeded!' );
+
     }
 }
