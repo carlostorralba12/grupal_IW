@@ -12,4 +12,9 @@ class Categoria extends Model
         'id', 
         'nombre'
     ];
+
+    public function subcategorias() {
+        
+        return $this->hasMany('App\Models\Subcategoria');
+    }
 }

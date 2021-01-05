@@ -20,13 +20,14 @@ class Producto extends Model
         'subcategoria_id'
     ];
 
-    public function categoria() {
-        // Phone tiene la clave ajena 'user_id'
-        return $this->belongsTo('App\Models\Categoria');
-    }
+   
 
     public function subcategoria() {
-        // Phone tiene la clave ajena 'user_id'
+        
         return $this->belongsTo('App\Models\Subcategoria');
+    }
+
+    public function users(){
+        return $this->belongsToMany('App\Models\Producto');
     }
 }
