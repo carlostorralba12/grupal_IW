@@ -21,8 +21,6 @@ class CreateProductsTable extends Migration
             $table->string('descripcionCorta');
             $table->string('descripcionLarga');
             $table->string('imagen');
-            $table->bigInteger('categoria_id')->unsigned();
-            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->bigInteger('subcategoria_id')->unsigned();
             $table->foreign('subcategoria_id')->references('id')->on('subcategorias');
             $table->timestamps();

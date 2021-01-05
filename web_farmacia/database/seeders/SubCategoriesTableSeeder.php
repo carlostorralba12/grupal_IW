@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Subcategoria;
+use App\Models\Categoria;
 
 class SubCategoriesTableSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class SubCategoriesTableSeeder extends Seeder
     {
         $subcategory = new Subcategoria();
         $subcategory->nombre = 'Subcategoria';
+        $subcategory->categoria_id = Categoria::where('nombre', 'categoria')->first()->id;
         $subcategory->save();
     }
 }
