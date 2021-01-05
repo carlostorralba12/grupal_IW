@@ -28,12 +28,18 @@ class ProductsTableSeeder extends Seeder
         $producto1->descripcionLarga = 'medicamente que quita el dolor temporalmente';
         $producto1->referencia = '00000';
         $producto1->imagen = 'images/paracetamol.jpeg';
-    
-        //$producto1->categoria()->associate(Categoria::where('nombre', 'categoria')->first());
         $producto1->subcategoria_id = Subcategoria::where('nombre', 'subcategoria')->first()->id;
-        //$producto1->subcategoria()->associate(Subcategoria::where('nombre', 'subcategoria')->first());
         $producto1->save();
 
+        $producto2 = new Producto();
+        $producto2->nombre = 'ibuprofeno';
+        $producto2->pvp = '5';
+        $producto2->descripcionCorta = 'ibuprofeno para adultos';
+        $producto2->descripcionLarga = 'medicamente que quita el dolor temporalmente';
+        $producto2->referencia = '00001';
+        $producto2->imagen = 'images/ibuprofeno.jpeg';
+        $producto2->subcategoria_id = Subcategoria::where('nombre', 'subcategoria')->first()->id;
+        $producto2->save();
 
  
     }
