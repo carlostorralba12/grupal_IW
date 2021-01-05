@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('descripcionLarga');
             $table->string('imagen');
             $table->bigInteger('subcategoria_id')->unsigned();
-            $table->foreign('subcategoria_id')->references('id')->on('subcategorias');
+            $table->foreign('subcategoria_id')->references('id')->on('subcategorias')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
