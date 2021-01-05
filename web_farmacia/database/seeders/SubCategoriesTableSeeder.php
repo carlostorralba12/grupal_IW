@@ -17,7 +17,7 @@ class SubCategoriesTableSeeder extends Seeder
     {
         $subcategory = new Subcategoria();
         $subcategory->nombre = 'Subcategoria';
-        $subcategory->categoria_id = Categoria::where('nombre', 'categoria')->first()->id;
+        $subcategory->categoria_id = Categoria::where('nombre', 'categoria 1')->first()->id;
         $subcategory->save();
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers;
-
+use App\Models\Categoria;
 
 
 /*
@@ -29,3 +29,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
+
+Route::get('/admin/catalogo', function () {
+    return view('admin.catalogo.categorias', ['categorias' => Categoria::simplePaginate(10) ]);
+});
+
