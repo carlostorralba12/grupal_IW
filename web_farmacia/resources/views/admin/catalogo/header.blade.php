@@ -26,9 +26,9 @@
 
     <div class="buttons-container">
 
-        <button type="button" class="btn btn-success">Añadir Categoria</button>
-        <button type="button" class="btn btn-secondary">Añadir Subcategoria</button>
-        <button type="button" class="btn btn-primary">Añadir Producto</button>
+        @include('admin.catalogo.addCategoria')
+        @include('admin.catalogo.addSubcategoria')
+        @include('admin.catalogo.addProducto')
         
     </div>
 

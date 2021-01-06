@@ -28,6 +28,7 @@
 
 <div class="categorias-container" style="margin: 3%">
 
+    @include('admin.catalogo.messagesSuccess')
     <h2>Categorías</h2>
 
     <div class="categorias-content">
@@ -45,6 +46,11 @@
     </div>
     {{$categorias->links()}}
 
+    <script type="text/javascript">
+        @error ('nombre')
+            $('#addCategoria').modal('show');
+        @enderror
+    </script>
 
 </div>
 @endsection
