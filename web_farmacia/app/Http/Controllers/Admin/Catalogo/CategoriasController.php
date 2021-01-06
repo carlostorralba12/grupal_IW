@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Catalogo;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 
-class AdminCatalagoController extends Controller
-
+class CategoriasController extends Controller
 {
     private $addCategoriaMessage = '';
     public function getCategorias(){    

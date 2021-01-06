@@ -22,7 +22,7 @@
 
       </div>
       
-      <form action="{{ action('App\Http\Controllers\AdminCatalagoController@saveCategoria') }}" id="form" method="POST" role="form">
+      <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CategoriasController@saveCategoria') }}" id="form" method="POST" role="form">
       {{ csrf_field() }}
 
         <div class="modal-body" id="modalBody">
