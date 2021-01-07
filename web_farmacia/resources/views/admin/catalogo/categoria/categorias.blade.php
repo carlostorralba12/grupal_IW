@@ -38,15 +38,30 @@
                 
                 <span>{{$categoria->nombre}}</span>
 
-                <button type="button" class="btn btn-info">Detalles</button>
+                <div class="buttons-actions">
 
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+
+                    <span>{{$categoria->id}}</span>
+                    {{--@include('admin.catalogo.categoria.updateCategoria', ['categoria' => $categoria])--}}
+                    @component('admin.catalogo.categoria.updateCategoria', ['categoria' => $categoria])
+                    @endcomponent
+
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateCategoria">
+                        Modificar
+                    </button>
+                                        
+                    <button type="button" class="btn btn-info">Detalles</button>
+
+                </div>
+                
             </div>
         @endforeach
 
     </div>
     {{$categorias->links()}}
 
-    <script type="text/javascript">
+    <script>
         @error ('nombre')
             $('#addCategoria').modal('show');
         @enderror

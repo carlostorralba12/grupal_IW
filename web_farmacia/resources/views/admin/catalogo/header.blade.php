@@ -26,7 +26,7 @@
 
     <div class="buttons-container">
 
-        @include('admin.catalogo.addCategoria')
+        @include('admin.catalogo.categoria.addCategoria')
         @include('admin.catalogo.addSubcategoria')
         @include('admin.catalogo.addProducto')
         
