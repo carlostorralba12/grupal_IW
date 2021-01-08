@@ -11,10 +11,12 @@ class CategoriasController extends Controller
     private $categoriaAdded;
     private $checkAddedCategoria = false;
     private $updateCategoriaMessage = '';
+    private $deleteCategoriaMessage = '';
     public function getCategorias(){    
         
         return view('admin.catalogo.categoria.categorias', ['categorias' => Categoria::simplePaginate(10) ])
-        ->with('categoriaAdded', $this->categoriaAdded)->with('checkAddedCategoria', $this->checkAddedCategoria);
+        ->with('categoriaAdded', $this->categoriaAdded)->with('checkAddedCategoria', $this->checkAddedCategoria)
+        ->with('deleteCategoriaMessage', $this->deleteCategoriaMessage);
     }
 
     public function saveCategoria(Request $request){
@@ -51,8 +53,11 @@ class CategoriasController extends Controller
         ->with('mensajeUpdateCategoria', $this->updateCategoriaMessage)->with('categoriaAdded', $this->categoriaAdded);
 
     }
-    public function getModalUpdate($id){
+    public function deleteCategoria($id){
 
-        return view('admin.catalogo.categoria.updateCategoria', ['categoria' => Categoria::find($id)])->with('modal', true);
+        $categoria = Categoria::find($id); 
+        $this->deleteCategoriaMessage = $categoria->nombre;
+        $categoria->delete(); 
+        return $this->getCategorias();
     }
 }

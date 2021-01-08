@@ -24,3 +24,16 @@
         
     </div>
 @endif
+
+
+@if(!empty($deleteCategoriaMessage))
+    <div class="alert alert-danger" role="alert">
+
+       <span>La categoría: <strong>{{$deleteCategoriaMessage}}</strong> ha sido eliminada correctamente.</span>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
+    </div>
+@endif

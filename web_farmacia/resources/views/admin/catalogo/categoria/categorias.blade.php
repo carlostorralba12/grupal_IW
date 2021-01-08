@@ -17,7 +17,7 @@
         }
         .categorias-content{
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 50% 50%;
             margin-bottom: 2%;
         }
 
@@ -28,7 +28,7 @@
 
 <div class="categorias-container" style="margin: 3%">
 
-    @include('admin.catalogo.messagesSuccess')
+    @include('admin.catalogo.infoMessages')
     <h2>Categorías</h2>
 
     <div class="categorias-content">
@@ -39,14 +39,8 @@
                 <span>{{$categoria->nombre}}</span>
 
                 <div class="buttons-actions">
-
-                    <button type="button" class="btn btn-danger">Eliminar</button>
-
-                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateCategoria">
-                        Modificar
-                    </button>
                                         
-                    <a class="btn btn-info" href="/admin/categorias/{{$categoria->id}}">Detalles</a>
+                    <a class="btn btn-info" href="/admin/categorias/{{$categoria->id}}">Subcategorías</a>
 
                 </div>
                 

@@ -17,7 +17,7 @@
         }
         .subcategorias-content{
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 50% 50%;
             margin-bottom: 2%;
         }
         .categoria-content{
@@ -41,13 +41,13 @@
 
 <div class="categoria-container" style="margin: 3%">
     
-    @include('admin.catalogo.messagesSuccess')
+    @include('admin.catalogo.infoMessages')
     <div class="categoria-content">   
 
-        <h3>{{$categoria->nombre}}</h3>
+        <h3 style="text-transform:capitalize">{{$categoria->nombre}}</h3>
         <div class="buttons-actions">
 
-            <button type="button" class="btn btn-danger">Eliminar</button>
+            @include('admin.catalogo.categoria.deleteCategoria', $categoria)
 
             @include('admin.catalogo.categoria.updateCategoria', $categoria)
 
