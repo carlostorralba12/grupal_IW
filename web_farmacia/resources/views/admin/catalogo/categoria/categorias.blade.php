@@ -42,16 +42,11 @@
 
                     <button type="button" class="btn btn-danger">Eliminar</button>
 
-                    <span>{{$categoria->id}}</span>
-                    {{--@include('admin.catalogo.categoria.updateCategoria', ['categoria' => $categoria])--}}
-                    @component('admin.catalogo.categoria.updateCategoria', ['categoria' => $categoria])
-                    @endcomponent
-
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateCategoria">
                         Modificar
                     </button>
                                         
-                    <button type="button" class="btn btn-info">Detalles</button>
+                    <a class="btn btn-info" href="/admin/categorias/{{$categoria->id}}">Detalles</a>
 
                 </div>
                 

@@ -8,10 +8,13 @@ use App\Models\Categoria;
 
 class CategoriasController extends Controller
 {
-    private $addCategoriaMessage = '';
+    private $categoriaAdded;
+    private $checkAddedCategoria = false;
+    private $updateCategoriaMessage = '';
     public function getCategorias(){    
         
-        return view('admin.catalogo.categoria.categorias', ['categorias' => Categoria::simplePaginate(10) ])->with('mensaje', $this->addCategoriaMessage);
+        return view('admin.catalogo.categoria.categorias', ['categorias' => Categoria::simplePaginate(10) ])
+        ->with('categoriaAdded', $this->categoriaAdded)->with('checkAddedCategoria', $this->checkAddedCategoria);
     }
 
     public function saveCategoria(Request $request){
@@ -22,7 +25,8 @@ class CategoriasController extends Controller
         $categoria = new Categoria();
         $categoria->nombre = $request->input('nombre');
         $categoria->save();
-        $this->addCategoriaMessage = ((string)$categoria->nombre);
+        $this->checkAddedCategoria = true;
+        $this->categoriaAdded = $categoria;
         return $this->getCategorias();
     }
 
@@ -34,8 +38,18 @@ class CategoriasController extends Controller
         $categoria = Categoria::find($id);
         $categoria->nombre = $request->input('nombre');
         $categoria->save();
-        $this->addCategoriaMessage = ((string)$categoria->nombre);
-        return $this->getCategorias();
+        $this->checkAddedCategoria = false;
+        $this->updateCategoriaMessage = ((string)$categoria->nombre);
+        return $this->detallesCategoria($id);
+    }
+
+    public function detallesCategoria($id){
+
+        $categoria = Categoria::find($id);
+        $subcategorias = $categoria->subcategorias()->simplePaginate(10);
+        return view('admin.catalogo.categoria.detallesCategoria')->with('categoria', $categoria)->with('subcategorias', $subcategorias)
+        ->with('mensajeUpdateCategoria', $this->updateCategoriaMessage)->with('categoriaAdded', $this->categoriaAdded);
+
     }
     public function getModalUpdate($id){
 
