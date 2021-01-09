@@ -1,0 +1,81 @@
+#principal{
+    width: 1200px;
+    height: auto;
+    margin: auto;  
+}
+
+header{
+    height: 140px;
+}
+
+#logo{
+    float: right;
+    margin-top: 0px;
+    margin-right: 50px;
+}
+
+.menu{
+    text-decoration: none;
+    float: left;
+    width: 600px;
+    height: 50px;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.menu ul li{
+    list-style: none;
+    float: left;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    padding: 10px;
+    font-family: fantasy;
+    color: white;
+    background-color:rgb(41, 41, 223);
+    border: black solid 1px;
+}
+
+.menu ul li:hover a{
+    color: black;
+}
+
+
+#linea{
+    height: 3px;
+    background-color: black;
+}
+
+.pie{
+    float: left;
+    font-family: fantasy;
+}
+
+.tabla {
+    margin-top: 115px;
+    width: 1200px;
+    margin-left: 50px;
+}
+
+.tabla th{
+    display: inline-block;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.table button{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;     
+    color: white;   
+}
+
+.tabla button img {
+    height: 300px;
+    width: 300px;
+    border: black solid;
+}

@@ -19,10 +19,15 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'surname',
         'password',
-        'dni',
+        'phone',
         'adress'
     ];
+
+    public function productos(){
+        return $this->belongsToMany('App\Models\Producto');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

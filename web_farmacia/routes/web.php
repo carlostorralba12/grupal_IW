@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers;
+use App\Models\Categoria;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,23 @@ use app\Http\Controllers;
 |
 */
 
+
+
+
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
+
+Route::get('admin/categorias', 'App\Http\Controllers\Admin\Catalogo\CategoriasController@getCategorias');
+
+Route::post('admin/categorias' , 'App\Http\Controllers\Admin\Catalogo\CategoriasController@saveCategoria');
+
+Route::get('admin/categorias/{id}' , 'App\Http\Controllers\Admin\Catalogo\CategoriasController@getModalUpdate');
+Route::post('admin/categorias/{id}' , 'App\Http\Controllers\Admin\Catalogo\CategoriasController@updateCategoria');
