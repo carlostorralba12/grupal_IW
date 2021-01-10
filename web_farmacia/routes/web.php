@@ -34,5 +34,6 @@ Route::get('admin/categorias', 'App\Http\Controllers\Admin\Catalogo\CategoriasCo
 
 Route::post('admin/categorias' , 'App\Http\Controllers\Admin\Catalogo\CategoriasController@saveCategoria');
 
-Route::get('admin/categorias/{id}' , 'App\Http\Controllers\Admin\Catalogo\CategoriasController@getModalUpdate');
+Route::get('admin/categorias/{id}' , 'App\Http\Controllers\Admin\Catalogo\CategoriasController@detallesCategoria');
 Route::post('admin/categorias/{id}' , 'App\Http\Controllers\Admin\Catalogo\CategoriasController@updateCategoria');
+Route::post('admin/categorias/{id}/borrar' , 'App\Http\Controllers\Admin\Catalogo\CategoriasController@deleteCategoria');

@@ -1,4 +1,6 @@
-
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateCategoria">
+    Modificar
+</button>
 
 
 <!-- Modal -->
@@ -32,13 +34,13 @@
               <div class="col-md-6">
                   <input id="nombre" type="text" class="form-control" name="nombre" value="{{ $categoria->nombre }}" required>
                  
-                  <div id="errorNombre" style="margin-top: 2px; color:red; display:none">
+                  <div id="errorNombreUpdate" style="margin-top: 2px; color:red; display:none">
                       <span>El nombre ya está registrado.</span>
                   </div>
 
                   <script>
-                      @error ('nombre')
-                          $('#errorNombre').show();
+                      @error('nombre')
+                          $('#errorNombreUpdate').show();
                       @enderror
                   </script>
 
