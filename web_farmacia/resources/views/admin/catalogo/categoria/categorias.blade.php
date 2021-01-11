@@ -28,7 +28,7 @@
 
 <div class="categorias-container" style="margin: 3%">
 
-    @include('admin.catalogo.infoMessages')
+    @include('admin.catalogo.categoria.infoMessages')
     <h2>Categorías</h2>
 
     <div class="categorias-content">
@@ -36,7 +36,7 @@
         @foreach($categorias as $categoria)
             <div class="categoria-item">
                 
-                <span>{{$categoria->nombre}}</span>
+                <span>{{$categoria->nombreCategoria}}</span>
 
                 <div class="buttons-actions">
                                         
@@ -48,13 +48,6 @@
         @endforeach
 
     </div>
-    {{$categorias->links()}}
-
-    <script>
-        @error ('nombre')
-            $('#addCategoria').modal('show');
-        @enderror
-    </script>
 
 </div>
 @endsection

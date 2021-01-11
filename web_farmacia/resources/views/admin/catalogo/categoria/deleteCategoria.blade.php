@@ -11,7 +11,7 @@
 
       <div class="modal-header bg-danger text-white">
 
-        <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight:bold;">Eliminar Categoría {{$categoria->id}}</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight:bold;">Eliminar Categoría</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -23,7 +23,7 @@
 
     <div class="modal-body" id="modalBody" style="text-align: center">
 
-      <h5 style="margin:0">¿Quieres eliminar la categoría: <b>{{$categoria->nombre}} </b>?</h5>
+      <h5 style="margin:0">¿Quieres eliminar la categoría: <b>{{$categoria->nombreCategoria}} </b>?</h5>
       <small><b>*Borrarás todas las subcategorías y productos contenidos*</b></small>
 
     </div>

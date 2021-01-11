@@ -29,18 +29,19 @@
 
           <div class="form-group row">
 
-              <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+              <label for="nombreCategoria" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
               <div class="col-md-6">
-                  <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required>
+                  <input id="nombreCategoria" type="text" class="form-control" name="nombreCategoria" value="{{ old('nombreCategoria') }}" required>
                  
-                  <div id="errorNombre" style="margin-top: 2px; color:red; display:none">
+                  <div id="errorNombreAdd" style="margin-top: 2px; color:red; display:none">
                       <span>El nombre ya está registrado.</span>
                   </div>
 
                   <script>
-                      @error ('nombre')
-                          $('#errorNombre').show();
+                      @error ('nombreCategoria')
+                     
+                          $('#errorNombreAdd').show();
                       @enderror
                   </script>
 

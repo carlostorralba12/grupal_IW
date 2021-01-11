@@ -1,8 +1,6 @@
 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateCategoria">
     Modificar
 </button>
-
-
 <!-- Modal -->
 <div class="modal fade" id="updateCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
@@ -12,7 +10,7 @@
 
       <div class="modal-header bg-dark text-white">
 
-        <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight:bold;">Modificar Categoría {{$categoria->id}}</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight:bold;">Modificar Categoría</h5>
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 
@@ -32,17 +30,11 @@
               <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
               <div class="col-md-6">
-                  <input id="nombre" type="text" class="form-control" name="nombre" value="{{ $categoria->nombre }}" required>
+                  <input id="nombre" type="text" class="form-control" name="nombre" value="{{ $categoria->nombreCategoria }}" required>
                  
                   <div id="errorNombreUpdate" style="margin-top: 2px; color:red; display:none">
                       <span>El nombre ya está registrado.</span>
                   </div>
-
-                  <script>
-                      @error('nombre')
-                          $('#errorNombreUpdate').show();
-                      @enderror
-                  </script>
 
               </div>
 

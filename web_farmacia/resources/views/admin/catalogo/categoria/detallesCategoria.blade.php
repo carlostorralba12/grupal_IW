@@ -41,14 +41,14 @@
 
 <div class="categoria-container" style="margin: 3%">
     
-    @include('admin.catalogo.infoMessages')
+    @include('admin.catalogo.categoria.infoMessages')
     <div class="categoria-content">   
 
-        <h3 style="text-transform:capitalize">{{$categoria->nombre}}</h3>
+        <h3 style="text-transform:capitalize">{{$categoria->nombreCategoria}}</h3>
         <div class="buttons-actions">
 
             @include('admin.catalogo.categoria.deleteCategoria', $categoria)
-
+            
             @include('admin.catalogo.categoria.updateCategoria', $categoria)
 
         </div>
@@ -68,7 +68,7 @@
 
                     <button type="button" class="btn btn-danger">Eliminar</button>
                                         
-                    <a class="btn btn-info">Detalles</a>
+                    <a class="btn btn-info">Productos</a>
 
                 </div>
                 
@@ -81,12 +81,6 @@
         {{$subcategorias->links()}}
         <a class="btn btn-info" style="background-color: #38A641" href="/admin/categorias/">Categorias</a>
     </div>
-
-    <script>
-        @error ('nombre')
-            $('#updateCategoria').modal('show');
-        @enderror
-    </script>
    
 </div>
 

@@ -12,6 +12,7 @@ class CategoriasController extends Controller
     private $checkAddedCategoria = false;
     private $updateCategoriaMessage = '';
     private $deleteCategoriaMessage = '';
+
     public function getCategorias(){    
         
         return view('admin.catalogo.categoria.categorias', ['categorias' => Categoria::simplePaginate(10) ])
@@ -22,10 +23,10 @@ class CategoriasController extends Controller
     public function saveCategoria(Request $request){
 
         $request->validate([
-            'nombre' => 'required|unique:categorias'
+            'nombreCategoria' => 'required|unique:categorias'
         ]);
         $categoria = new Categoria();
-        $categoria->nombre = $request->input('nombre');
+        $categoria->nombreCategoria = $request->input('nombreCategoria');
         $categoria->save();
         $this->checkAddedCategoria = true;
         $this->categoriaAdded = $categoria;
@@ -33,15 +34,12 @@ class CategoriasController extends Controller
     }
 
     public function updateCategoria(Request $request, $id){
-
-        $request->validate([
-            'nombre' => 'required|unique:categorias'
-        ]);
+      
         $categoria = Categoria::find($id);
-        $categoria->nombre = $request->input('nombre');
-        $categoria->save();
+        $categoria->nombreCategoria = $request->input('nombre');
+        $categoria->update();
         $this->checkAddedCategoria = false;
-        $this->updateCategoriaMessage = ((string)$categoria->nombre);
+        $this->updateCategoriaMessage = ((string)$categoria->nombreCategoria);
         return $this->detallesCategoria($id);
     }
 

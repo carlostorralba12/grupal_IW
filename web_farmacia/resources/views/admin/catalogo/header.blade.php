@@ -25,11 +25,17 @@
     <h1 style="text-align:center; margin-bottom: 2%;">Administración Catálogo</h1>
 
     <div class="buttons-container">
-
+       
         @include('admin.catalogo.categoria.addCategoria')
-        @include('admin.catalogo.addSubcategoria')
+        @include('admin.catalogo.subcategoria.addSubcategoria')
         @include('admin.catalogo.addProducto')
-        
+
+        <script>
+            @error ('nombreCategoria')
+                $('#addCategoria').modal('show');
+            @enderror
+        </script>
+  
     </div>
 
     @yield('adminCatalogo')
