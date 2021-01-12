@@ -17,7 +17,7 @@
     <div class="alert alert-success" role="alert">
 
        <span>La subcategoría: <strong>{{$subCategoriaAdded->nombre}}</strong> ha sido añadida correctamente. 
-        <a href="/admin/categorias/{{$subCategoriaAdded->categoria_id}}/subcategorias/{{$subCategoriaAdded->id}}" class="alert-link">Picha aquí</a>
+        <a href="/admin/subcategorias/{{$subCategoriaAdded->id}}" class="alert-link">Picha aquí</a>
         para ver sus detalles
        </span>
 

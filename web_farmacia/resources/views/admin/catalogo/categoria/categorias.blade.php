@@ -36,7 +36,7 @@
         @foreach($categorias as $categoria)
             <div class="categoria-item">
                 
-                <span>{{$categoria->nombreCategoria}}</span>
+                <span style="padding-top: 1%">{{$categoria->nombreCategoria}}</span>
 
                 <div class="buttons-actions">
                                         

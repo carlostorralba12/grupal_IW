@@ -62,13 +62,13 @@
         @foreach($subcategorias as $subcategoria)
             <div class="subcategoria-item">
                 
-                <span>{{$subcategoria->nombre}}</span>
+                <span style="padding-top: 1%">{{$subcategoria->nombre}}</span>
 
                 <div class="buttons-actions">
 
                     <button type="button" class="btn btn-danger">Eliminar</button>
                                         
-                    <a class="btn btn-info">Productos</a>
+                    <a class="btn btn-info" href="/admin/subcategorias/{{$subcategoria->id}}">Productos</a>
 
                 </div>
                 
