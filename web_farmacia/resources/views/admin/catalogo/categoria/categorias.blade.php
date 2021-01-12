@@ -28,7 +28,7 @@
 
 <div class="categorias-container" style="margin: 3%">
 
-    @include('admin.catalogo.categoria.infoMessages')
+    @include('admin.catalogo.infoMessages')
     <h2>Categorías</h2>
 
     <div class="categorias-content">

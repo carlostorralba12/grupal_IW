@@ -20,7 +20,7 @@
 
       </div>
       
-      <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CategoriasController@updateCategoria', $categoria->id) }}" id="form" method="POST" role="form">
+      <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CatalogoController@updateCategoria', $categoria->id) }}" id="form" method="POST" role="form">
       {{ csrf_field() }}
 
         <div class="modal-body" id="modalBody">

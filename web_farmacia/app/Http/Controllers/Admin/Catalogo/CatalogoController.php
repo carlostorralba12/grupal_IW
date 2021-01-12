@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin\Catalogo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use App\Models\Subcategoria;
 
-class CategoriasController extends Controller
+class CatalogoController extends Controller
 {
     private $categoriaAdded;
+    private $subCategoriaAdded = null;
     private $checkAddedCategoria = false;
     private $updateCategoriaMessage = '';
     private $deleteCategoriaMessage = '';
@@ -17,7 +19,8 @@ class CategoriasController extends Controller
         
         return view('admin.catalogo.categoria.categorias', ['categorias' => Categoria::simplePaginate(10) ])
         ->with('categoriaAdded', $this->categoriaAdded)->with('checkAddedCategoria', $this->checkAddedCategoria)
-        ->with('deleteCategoriaMessage', $this->deleteCategoriaMessage);
+        ->with('deleteCategoriaMessage', $this->deleteCategoriaMessage)->with('selectCategorias', Categoria::all())
+        ->with('subCategoriaAdded', $this->subCategoriaAdded);
     }
 
     public function saveCategoria(Request $request){
@@ -48,14 +51,36 @@ class CategoriasController extends Controller
         $categoria = Categoria::find($id);
         $subcategorias = $categoria->subcategorias()->simplePaginate(10);
         return view('admin.catalogo.categoria.detallesCategoria')->with('categoria', $categoria)->with('subcategorias', $subcategorias)
-        ->with('mensajeUpdateCategoria', $this->updateCategoriaMessage)->with('categoriaAdded', $this->categoriaAdded);
+        ->with('mensajeUpdateCategoria', $this->updateCategoriaMessage)->with('categoriaAdded', $this->categoriaAdded)
+        ->with('selectCategorias', Categoria::all())->with('subCategoriaAdded', $this->subCategoriaAdded);
 
     }
+    
     public function deleteCategoria($id){
 
         $categoria = Categoria::find($id); 
-        $this->deleteCategoriaMessage = $categoria->nombre;
+        $this->deleteCategoriaMessage = ((string)$categoria->nombreCategoria);
         $categoria->delete(); 
         return $this->getCategorias();
+    }
+
+    public function getProductos(){    
+        
+        return view('admin.catalogo.subcategoria.detallesSubcategorias', ['productos' => Producto::simplePaginate(10)]);
+       
+    }
+
+    public function saveSubcategoria(Request $request){
+
+        $request->validate([
+            'nombre' => 'required'
+        ]);
+        $subcategoria = new Subcategoria();
+        $subcategoria->nombre = $request->input('nombre');
+        $subcategoria->categoria_id = $request->input('categoriaID');
+        $this->subCategoriaAdded = $subcategoria;
+        $subcategoria->save();
+        $cat_id = ((string)$subcategoria->categoria_id);
+        return $this->detallesCategoria($subcategoria->categoria_id);
     }
 }

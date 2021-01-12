@@ -41,7 +41,7 @@
 
 <div class="categoria-container" style="margin: 3%">
     
-    @include('admin.catalogo.categoria.infoMessages')
+    @include('admin.catalogo.infoMessages')
     <div class="categoria-content">   
 
         <h3 style="text-transform:capitalize">{{$categoria->nombreCategoria}}</h3>
