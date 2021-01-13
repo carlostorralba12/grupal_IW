@@ -21,7 +21,6 @@
             margin-bottom: 2%;
         }
         .subcategoria-content{
-            color:white;
             display:flex;
             justify-content:space-between;
             padding: 2%;
@@ -45,10 +44,11 @@
     @include('admin.catalogo.infoMessages')
     <div class="subcategoria-content">   
 
-        <h3 style="text-transform:capitalize">{{$subcategoria->nombre}}</h3>
+        <h3 style="text-transform:capitalize; color:white;">{{$subcategoria->nombre}}</h3>
         <div class="buttons-actions">
 
-           @include('admin.catalogo.subcategoria.updateSubcategoria')
+            @include('admin.catalogo.subcategoria.deleteSubcategoria', $subcategoria)
+            @include('admin.catalogo.subcategoria.updateSubcategoria')
 
         </div>
 

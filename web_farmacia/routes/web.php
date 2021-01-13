@@ -36,11 +36,12 @@ Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
  ***********************************************************************************/ 
 // CATEGORIAS
 Route::get('admin/categorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@getCategorias');
-Route::post('admin/categorias' , 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveCategoria');
-Route::get('admin/categorias/{id}' , 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesCategoria');
-Route::post('admin/categorias/{id}' , 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateCategoria');
+Route::post('admin/categorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveCategoria');
+Route::get('admin/categorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesCategoria');
+Route::post('admin/categorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateCategoria');
 Route::post('admin/categorias/{id}/borrar' , 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteCategoria');
 // SUBCATEGORIAS
-Route::get('admin/subcategorias/{id}' , 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesSubcategoria');
-Route::post('admin/subcategorias' , 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveSubcategoria');
+Route::get('admin/subcategorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesSubcategoria');
+Route::post('admin/subcategorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveSubcategoria');
 Route::post('admin/subcategorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateSubcategoria');
+Route::post('admin/subcategorias/{id}/borrar', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteSubcategoria');

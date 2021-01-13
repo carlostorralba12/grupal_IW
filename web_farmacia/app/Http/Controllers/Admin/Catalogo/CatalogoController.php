@@ -14,6 +14,7 @@ class CatalogoController extends Controller
     private $checkAddedCategoria = false;
     private $updateCategoriaMessage = '';
     private $deleteCategoriaMessage = '';
+    private $deleteSubcategoriaMessage = '';
 
     public function getCategorias(){    
         
@@ -52,7 +53,8 @@ class CatalogoController extends Controller
         $subcategorias = $categoria->subcategorias()->simplePaginate(10);
         return view('admin.catalogo.categoria.detallesCategoria')->with('categoria', $categoria)->with('subcategorias', $subcategorias)
         ->with('mensajeUpdateCategoria', $this->updateCategoriaMessage)->with('categoriaAdded', $this->categoriaAdded)
-        ->with('selectCategorias', Categoria::all())->with('subCategoriaAdded', $this->subCategoriaAdded);
+        ->with('selectCategorias', Categoria::all())->with('subCategoriaAdded', $this->subCategoriaAdded)
+        ->with('deleteSubcategoriaMessage', $this->deleteSubcategoriaMessage);
 
     }
     
@@ -100,5 +102,14 @@ class CatalogoController extends Controller
         
         $subcategoria->update();
         return $this->detallesSubcategoria($id);
+    }
+
+    public function deleteSubcategoria($id){
+
+        $subcategoria = Subcategoria::find($id); 
+        $this->deleteSubcategoriaMessage = ((string)$subcategoria->nombre);
+        $categoriaID = $subcategoria->categoria_id;
+        $subcategoria->delete(); 
+        return $this->detallesCategoria($categoriaID);
     }
 }
