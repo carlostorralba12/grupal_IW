@@ -66,8 +66,6 @@
 
                 <div class="buttons-actions">
 
-                    <button type="button" class="btn btn-danger">Eliminar</button>
-                                        
                     <a class="btn btn-info" href="/admin/subcategorias/{{$subcategoria->id}}">Productos</a>
 
                 </div>

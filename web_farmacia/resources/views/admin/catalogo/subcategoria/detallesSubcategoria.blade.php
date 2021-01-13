@@ -48,7 +48,7 @@
         <h3 style="text-transform:capitalize">{{$subcategoria->nombre}}</h3>
         <div class="buttons-actions">
 
-           
+           @include('admin.catalogo.subcategoria.updateSubcategoria')
 
         </div>
 
@@ -64,10 +64,8 @@
                 <span style="padding-top: 1%">{{$producto->nombre}}</span>
 
                 <div class="buttons-actions">
-
-                    <button type="button" class="btn btn-danger">Eliminar</button>
                                         
-                    <a class="btn btn-info" href="/admin/subcategorias/{{$subcategoria->id}}">Productos</a>
+                    <a class="btn btn-info" href="/admin/subcategorias/{{$subcategoria->id}}">Detalles</a>
 
                 </div>
                 
@@ -78,7 +76,10 @@
 
     <div class="buttons-footer">
         {{$productos->links()}}
-        <a class="btn btn-info" style="background-color: #38A641" href="/admin/categorias/">Categorias</a>
+        <a class="btn btn-info" style="background-color: #89f07f; text-transform: capitalize" href="/admin/categorias/{{$subcategoria->categoria_id}}">
+  
+            {{App\Models\Categoria::find($subcategoria->categoria_id)->nombreCategoria}}
+        </a>
     </div>
    
 </div>

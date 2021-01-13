@@ -86,7 +86,19 @@ class CatalogoController extends Controller
         $subcategoria->categoria_id = $request->input('categoriaID');
         $this->subCategoriaAdded = $subcategoria;
         $subcategoria->save();
-        $cat_id = ((string)$subcategoria->categoria_id);
         return $this->detallesCategoria($subcategoria->categoria_id);
+    }
+
+
+    public function updateSubcategoria(Request $request, $id){
+    
+        $subcategoria = Subcategoria::find($id);
+        $subcategoria->nombre = $request->input('nombre');
+        if($request->input('categoriaID') != 'Selecciona'){
+            $subcategoria->categoria_id = $request->input('categoriaID');
+        }
+        
+        $subcategoria->update();
+        return $this->detallesSubcategoria($id);
     }
 }

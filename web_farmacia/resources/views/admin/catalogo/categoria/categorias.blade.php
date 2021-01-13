@@ -48,6 +48,6 @@
         @endforeach
 
     </div>
-
+    {{$categorias->links()}}
 </div>
 @endsection

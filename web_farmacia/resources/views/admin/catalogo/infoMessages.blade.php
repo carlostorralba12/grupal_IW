@@ -31,7 +31,7 @@
 @if(!empty($mensajeUpdateCategoria))
     <div class="alert alert-secondary" role="alert">
 
-       <span>La categoría ha sido modificada correctamente con el siguiente nombre: <strong>{{$mensajeUpdateCategoria}}</strong> .</span>
+       <span>La categoría ha sido modificada correctamente.</span>
 
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -40,6 +40,17 @@
     </div>
 @endif
 
+@if(!empty($mensajeUpdatesubCategoria))
+    <div class="alert alert-secondary" role="alert">
+
+       <span>La subcategoría ha sido modificada correctamente.</span>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
+    </div>
+@endif
 
 @if(!empty($deleteCategoriaMessage))
     <div class="alert alert-danger" role="alert">
