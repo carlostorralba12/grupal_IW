@@ -28,7 +28,7 @@
        
         @include('admin.catalogo.categoria.addCategoria')
         @include('admin.catalogo.subcategoria.addSubcategoria')
-        @include('admin.catalogo.addProducto')
+        <a href="/admin/productos/añadir" class="btn btn-primary" role="button" aria-pressed="true">Añadir Producto</a>
 
         <script>
             @error ('nombreCategoria')

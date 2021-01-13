@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Subcategoria;
+use App\Models\Producto;
 
 class CatalogoController extends Controller
 {
@@ -112,4 +113,34 @@ class CatalogoController extends Controller
         $subcategoria->delete(); 
         return $this->detallesCategoria($categoriaID);
     }
+
+
+
+    public function saveProducto(Request $request){
+
+        $request->validate([
+            'nombre' => 'required'
+        ]);
+            
+        $producto = new Producto();
+        $producto->nombre = $request->input('nombre');
+        $producto->pvp = $request->input('pvp');
+        $producto->referencia = $request->input('referencia');
+        $producto->descripcionCorta = $request->input('descripcionCorta');
+        $producto->descripcionLarga = $request->input('descripcionLarga');
+        $producto->imagen = $request->input('imagen');
+        $producto->subcategoria_id = $request->input('subcategoriaID');
+        //$this->subCategoriaAdded = $subcategoria;
+        $producto->save();
+        return $this->detallesSubcategoria($producto->subcategoria_id);
+    }
+
+    public function ShowFormAddProducto(){
+
+        return view ('admin.catalogo.addProducto')->with('selectSubcategorias', Subcategoria::all())
+        ->with('selectCategorias', Categoria::all());
+
+    }
+
+
 }

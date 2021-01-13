@@ -45,3 +45,6 @@ Route::get('admin/subcategorias/{id}', 'App\Http\Controllers\Admin\Catalogo\Cata
 Route::post('admin/subcategorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveSubcategoria');
 Route::post('admin/subcategorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateSubcategoria');
 Route::post('admin/subcategorias/{id}/borrar', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteSubcategoria');
+// PRODUCTOS
+Route::post('admin/productos', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveProducto');
+Route::get('admin/productos/añadir', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@ShowFormAddProducto');
