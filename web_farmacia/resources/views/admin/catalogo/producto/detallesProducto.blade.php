@@ -49,8 +49,14 @@
 
 </head>
 
+<div style="margin: 3%">
+
+@include('admin.catalogo.infoMessages')
+
+</div>
+
 <div class="producto-container"style="margin: 3% 10%">
-      
+    
       <div class="card">
 
         <div class="card-header producto-header">
@@ -93,10 +99,18 @@
         
         </div>
 
-        <div class="card-footer text-muted" style="text-align: right;">
+        <div class="card-footer text-muted" style="display:flex; justify-content: space-between;">
       
-          <button class="btn btn-danger">Eliminar</button>
-          <a class="btn btn-dark">Modificar</a>
+          <a class="btn btn-info" style="background-color: #a6b5a4; text-transform: capitalize" href="/admin/subcategorias/{{$producto->subcategoria_id}}">
+            {{App\Models\Subcategoria::find($producto->subcategoria_id)->nombre}}
+          </a>
+          <div class="buttons-acciones">
+
+            @include('admin.catalogo.producto.deleteProducto')
+            <a class="btn btn-dark" href="/admin/productos/{{$producto->id}}/modificar">Modificar</a>
+
+          </div>
+      
 
         </div>
 

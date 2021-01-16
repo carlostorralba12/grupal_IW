@@ -28,6 +28,21 @@
     </div>
 @endif
 
+@if($productoAdded != null)
+    <div class="alert alert-success" role="alert">
+
+       <span>El producto: <strong>{{$productoAdded->nombre}}</strong> ha sido añadido correctamente. 
+        <a href="/admin/productos/{{$productoAdded->id}}" class="alert-link">Picha aquí</a>
+        para ver sus detalles
+       </span>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
+    </div>
+@endif
+
 @if(!empty($mensajeUpdateCategoria))
     <div class="alert alert-secondary" role="alert">
 
@@ -52,6 +67,20 @@
     </div>
 @endif
 
+
+@if(!empty($mensajeUpdateProducto))
+    <div class="alert alert-secondary" role="alert">
+
+       <span>El producto ha sido modificado correctamente.</span>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
+    </div>
+@endif
+
+
 @if(!empty($deleteCategoriaMessage))
     <div class="alert alert-danger" role="alert">
 
@@ -68,6 +97,18 @@
     <div class="alert alert-danger" role="alert">
 
        <span>La subcategoría: <strong>{{$deleteSubcategoriaMessage}}</strong> ha sido eliminada correctamente.</span>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        
+    </div>
+@endif
+
+@if(!empty($deleteProductoMessage))
+    <div class="alert alert-danger" role="alert">
+
+       <span>El producto: <strong>{{$deleteProductoMessage}}</strong> ha sido eliminado correctamente.</span>
 
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

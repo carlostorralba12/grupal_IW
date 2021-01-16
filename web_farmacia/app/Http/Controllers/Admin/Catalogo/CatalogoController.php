@@ -16,15 +16,18 @@ class CatalogoController extends Controller
     private $productoAdded = null;
     private $checkAddedCategoria = false;
     private $updateCategoriaMessage = '';
+    private $updateSubcategoriaMessage = '';
+    private $updateProductoMessage = '';
     private $deleteCategoriaMessage = '';
     private $deleteSubcategoriaMessage = '';
+    private $deleteProductoMessage = '';
 
     public function getCategorias(){    
         
         return view('admin.catalogo.categoria.categorias', ['categorias' => Categoria::simplePaginate(10) ])
         ->with('categoriaAdded', $this->categoriaAdded)->with('checkAddedCategoria', $this->checkAddedCategoria)
         ->with('deleteCategoriaMessage', $this->deleteCategoriaMessage)->with('selectCategorias', Categoria::all())
-        ->with('subCategoriaAdded', $this->subCategoriaAdded);
+        ->with('subCategoriaAdded', $this->subCategoriaAdded)->with('productoAdded', $this->productoAdded);
     }
 
     public function saveCategoria(Request $request){
@@ -57,7 +60,7 @@ class CatalogoController extends Controller
         return view('admin.catalogo.categoria.detallesCategoria')->with('categoria', $categoria)->with('subcategorias', $subcategorias)
         ->with('mensajeUpdateCategoria', $this->updateCategoriaMessage)->with('categoriaAdded', $this->categoriaAdded)
         ->with('selectCategorias', Categoria::all())->with('subCategoriaAdded', $this->subCategoriaAdded)
-        ->with('deleteSubcategoriaMessage', $this->deleteSubcategoriaMessage);
+        ->with('deleteSubcategoriaMessage', $this->deleteSubcategoriaMessage)->with('productoAdded', $this->productoAdded);
 
     }
     
@@ -77,7 +80,9 @@ class CatalogoController extends Controller
 
         return view('admin.catalogo.subcategoria.detallesSubcategoria')->with('productos', $productos)
         ->with('subcategoria', $subcategoria)->with('categoria', $categoria)->with('selectCategorias', Categoria::all())
-        ->with('subCategoriaAdded', $this->subCategoriaAdded)->with('categoriaAdded', $this->categoriaAdded);
+        ->with('subCategoriaAdded', $this->subCategoriaAdded)->with('categoriaAdded', $this->categoriaAdded)
+        ->with('deleteProductoMessage' , $this->deleteProductoMessage)->with('productoAdded', $this->productoAdded)
+        ->with('mensajeUpdatesubCategoria', $this->updateSubcategoriaMessage);
        
     }
 
@@ -102,7 +107,7 @@ class CatalogoController extends Controller
         if($request->input('categoriaID') != 'Selecciona'){
             $subcategoria->categoria_id = $request->input('categoriaID');
         }
-        
+        $this->updateSubcategoriaMessage = $subcategoria->nombre;
         $subcategoria->update();
         return $this->detallesSubcategoria($id);
     }
@@ -134,16 +139,18 @@ class CatalogoController extends Controller
         $producto->descripcionLarga = $request->input('descripcionLarga');
         $producto->imagen =  Storage::disk('imagenProducto')->put('',$request->file('imagen'));
         $producto->subcategoria_id = $request->input('subcategoriaID');
-        //$this->subCategoriaAdded = $subcategoria;
+        $this->productoAdded = $producto;
         $producto->save();
-        return redirect("/admin/subcategorias/{$producto->subcategoria_id}");
+        return $this->detallesSubCategoria($producto->subcategoria_id);
     }
 
 
     public function detallesProducto($id){
         $producto = Producto::find($id);
         return view ('admin.catalogo.producto.detallesProducto')->with('selectSubcategorias', Subcategoria::all())
-        ->with('selectCategorias', Categoria::all())->with('producto', $producto);
+        ->with('selectCategorias', Categoria::all())->with('producto', $producto)->with('mensajeUpdateProducto', $this->updateProductoMessage)
+        ->with('subCategoriaAdded', $this->subCategoriaAdded)->with('categoriaAdded', $this->categoriaAdded)
+        ->with('productoAdded', $this->productoAdded);
 
     }
 
@@ -153,6 +160,46 @@ class CatalogoController extends Controller
         ->with('selectCategorias', Categoria::all());
 
     }
+
+    public function ShowFormUpdateProducto($id){
+
+        $producto = Producto::find($id);
+        return view ('admin.catalogo.producto.updateProducto')->with('selectSubcategorias', Subcategoria::all())
+        ->with('selectCategorias', Categoria::all())->with('producto', $producto);
+    }
+
+
+    public function deleteProducto($id){
+
+        $producto = Producto::find($id); 
+        $this->deleteProductoMessage = ((string)$producto->nombre);
+        $subcategoriaId = $producto->subcategoria_id;
+        Storage::disk('imagenProducto')->delete($producto->imagen);
+        $producto->delete(); 
+        return $this->detallesSubCategoria($subcategoriaId);
+    }
+
+    public function updateProducto(Request $request, $id){
+    
+        $producto = Producto::find($id);
+        $producto->nombre = $request->input('nombre');
+        $producto->pvp = $request->input('pvp');
+        $producto->referencia = $request->input('referencia');
+        $producto->descripcionCorta = $request->input('descripcionCorta');
+        $producto->descripcionLarga = $request->input('descripcionLarga');
+        if($request->hasFile('imagen')){
+            Storage::disk('imagenProducto')->delete($producto->imagen);
+            $producto->imagen =  Storage::disk('imagenProducto')->put('',$request->file('imagen'));
+        }
+
+        if($request->input('subcategoriaID') != 'Selecciona'){
+            $producto->subcategoria_id = $request->input('subcategoriaID');
+        }
+        $this->updateProductoMessage = (string)$producto->nombre;
+        $producto->update();
+        return $this->detallesProducto($id);
+    }
+
 
 
 }
