@@ -19,6 +19,22 @@ class CarritoTableSeeder extends Seeder
         DB::table('carrito')->delete();
         DB::table('carrito')->insert([
             'producto_id' => Producto::where('nombre', 'paracetamol')->first()->id,
+            'user_id' => User::where('email', 'admin@admin')->first()->id,
+        ]);
+        DB::table('carrito')->insert([
+            'producto_id' => Producto::where('nombre', 'ibuprofeno')->first()->id,
+            'user_id' => User::where('email', 'admin@admin')->first()->id
+        ]);
+        DB::table('carrito')->insert([
+            'producto_id' => Producto::where('nombre', 'gelocatil')->first()->id,
+            'user_id' => User::where('email', 'admin@admin')->first()->id
+        ]);
+        DB::table('carrito')->insert([
+            'producto_id' => Producto::where('nombre', 'couldina')->first()->id,
+            'user_id' => User::where('email', 'admin@admin')->first()->id
+        ]);
+        DB::table('carrito')->insert([
+            'producto_id' => Producto::where('nombre', 'geniol')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id
         ]);
         

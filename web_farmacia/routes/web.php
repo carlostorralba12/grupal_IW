@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers;
-use App\Models\Categoria;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -34,21 +33,26 @@ Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
 /*********************************************************************************** 
  *                                      ADMIN
  ***********************************************************************************/ 
-// CATEGORIAS
-Route::get('admin/categorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@getCategorias');
-Route::post('admin/categorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveCategoria');
-Route::get('admin/categorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesCategoria');
-Route::post('admin/categorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateCategoria');
-Route::post('admin/categorias/{id}/borrar' , 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteCategoria');
-// SUBCATEGORIAS
-Route::get('admin/subcategorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesSubcategoria');
-Route::post('admin/subcategorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveSubcategoria');
-Route::post('admin/subcategorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateSubcategoria');
-Route::post('admin/subcategorias/{id}/borrar', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteSubcategoria');
-// PRODUCTOS
-Route::post('admin/productos', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveProducto');
-Route::get('admin/productos/añadir', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@ShowFormAddProducto');
-Route::get('admin/productos/{id}/modificar', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@ShowFormUpdateProducto');
-Route::get('admin/productos/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesProducto');
-Route::post('admin/productos/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateProducto');
-Route::post('admin/productos/{id}/borrar', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteProducto');
+Route::middleware('admin')->group(function(){
+    // CATEGORIAS
+    Route::prefix('admin')->group(function(){
+        Route::get('categorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@getCategorias');
+        Route::post('categorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveCategoria');
+        Route::get('categorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesCategoria');
+        Route::post('categorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateCategoria');
+        Route::post('categorias/{id}/borrar' , 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteCategoria');
+        // SUBCATEGORIAS
+        Route::get('subcategorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesSubcategoria');
+        Route::post('subcategorias', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveSubcategoria');
+        Route::post('subcategorias/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateSubcategoria');
+        Route::post('subcategorias/{id}/borrar', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteSubcategoria');
+        // PRODUCTOS
+        Route::post('productos', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveProducto');
+        Route::get('productos/añadir', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@ShowFormAddProducto');
+        Route::get('productos/{id}/modificar', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@ShowFormUpdateProducto');
+        Route::get('productos/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesProducto');
+        Route::post('productos/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@updateProducto');
+        Route::post('productos/{id}/borrar', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteProducto');
+    });
+   
+});
