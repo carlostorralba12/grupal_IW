@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Catalogo;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Subcategoria;
@@ -12,6 +13,7 @@ class CatalogoController extends Controller
 {
     private $categoriaAdded;
     private $subCategoriaAdded = null;
+    private $productoAdded = null;
     private $checkAddedCategoria = false;
     private $updateCategoriaMessage = '';
     private $deleteCategoriaMessage = '';
@@ -119,7 +121,9 @@ class CatalogoController extends Controller
     public function saveProducto(Request $request){
 
         $request->validate([
-            'nombre' => 'required'
+            'nombre' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    
         ]);
             
         $producto = new Producto();
@@ -128,16 +132,24 @@ class CatalogoController extends Controller
         $producto->referencia = $request->input('referencia');
         $producto->descripcionCorta = $request->input('descripcionCorta');
         $producto->descripcionLarga = $request->input('descripcionLarga');
-        $producto->imagen = $request->input('imagen');
+        $producto->imagen =  Storage::disk('imagenProducto')->put('',$request->file('imagen'));
         $producto->subcategoria_id = $request->input('subcategoriaID');
         //$this->subCategoriaAdded = $subcategoria;
         $producto->save();
-        return $this->detallesSubcategoria($producto->subcategoria_id);
+        return redirect("/admin/subcategorias/{$producto->subcategoria_id}");
+    }
+
+
+    public function detallesProducto($id){
+        $producto = Producto::find($id);
+        return view ('admin.catalogo.producto.detallesProducto')->with('selectSubcategorias', Subcategoria::all())
+        ->with('selectCategorias', Categoria::all())->with('producto', $producto);
+
     }
 
     public function ShowFormAddProducto(){
 
-        return view ('admin.catalogo.addProducto')->with('selectSubcategorias', Subcategoria::all())
+        return view ('admin.catalogo.producto.addProducto')->with('selectSubcategorias', Subcategoria::all())
         ->with('selectCategorias', Categoria::all());
 
     }

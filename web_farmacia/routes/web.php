@@ -48,3 +48,4 @@ Route::post('admin/subcategorias/{id}/borrar', 'App\Http\Controllers\Admin\Catal
 // PRODUCTOS
 Route::post('admin/productos', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@saveProducto');
 Route::get('admin/productos/añadir', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@ShowFormAddProducto');
+Route::get('admin/productos/{id}', 'App\Http\Controllers\Admin\Catalogo\CatalogoController@detallesProducto');

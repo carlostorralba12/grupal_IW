@@ -27,7 +27,7 @@ class ProductsTableSeeder extends Seeder
         $producto1->descripcionCorta = 'paracetamol para adultos';
         $producto1->descripcionLarga = 'medicamente que quita el dolor temporalmente';
         $producto1->referencia = '00000';
-        $producto1->imagen = 'images/paracetamol.jpeg';
+        $producto1->imagen = 'paracetamol.jpg';
         $producto1->subcategoria_id = Subcategoria::where('nombre', 'subcategoria 1')->first()->id;
         $producto1->save();
 
@@ -37,7 +37,7 @@ class ProductsTableSeeder extends Seeder
         $producto2->descripcionCorta = 'ibuprofeno para adultos';
         $producto2->descripcionLarga = 'medicamente que quita el dolor temporalmente';
         $producto2->referencia = '00001';
-        $producto2->imagen = 'images/ibuprofeno.jpeg';
+        $producto2->imagen = 'dalsy.jpg';
         $producto2->subcategoria_id = Subcategoria::where('nombre', 'subcategoria 1')->first()->id;
         $producto2->save();
 

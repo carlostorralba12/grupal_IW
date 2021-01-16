@@ -27,7 +27,8 @@
             border-radius: 5px;
             background-color: #F0E68C;
             margin:auto;
-            width: 50%;
+            margin-bottom: 2% !important;
+            width: 70%;
         }
         .buttons-footer{
             display:flex;

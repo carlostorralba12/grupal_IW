@@ -27,7 +27,8 @@
             border-radius: 5px;
             background-color: #1F8577;
             margin:auto;
-            width: 50%;
+            margin-bottom: 2% !important;
+            width: 70%;
         }
         .buttons-footer{
             display:flex;
@@ -65,7 +66,7 @@
 
                 <div class="buttons-actions">
                                         
-                    <a class="btn btn-info" href="/admin/subcategorias/{{$subcategoria->id}}">Detalles</a>
+                    <a class="btn btn-info" href="/admin/productos/{{$producto->id}}">Detalles</a>
 
                 </div>
                 

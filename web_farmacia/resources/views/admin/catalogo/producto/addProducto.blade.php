@@ -11,7 +11,7 @@
 
     </div>
 
-    <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CatalogoController@saveProducto') }}" id="form" method="POST" role="form">
+    <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CatalogoController@saveProducto') }}" enctype="multipart/form-data" id="form" method="POST" role="form">
       {{ csrf_field() }}
       <div class="card-body">
       
