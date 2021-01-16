@@ -7,10 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <!--title>{{ config('app.name', 'FarmaWeb') }}</title-->
+    <title>FarmaWeb</title>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    FarmaWeb
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -80,4 +80,16 @@
         </main>
     </div>
 </body>
+<footer class="page-footer text-center font-small blue">
+
+  <!-- Copyright -->
+  <div class="footer-copyright py-3">© 2020 Copyright:
+    <a href="{{URL::to('/')}}">| FarmaWeb</a>
+    <a href="{{URL::to('/contact-us')}}">| Contacto</a>
+    <a href="{{URL::to('/nosotros')}}">| Sobre nosotros</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </html>

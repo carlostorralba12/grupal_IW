@@ -18,9 +18,10 @@ class UsersTableSeeder extends Seeder
     {
         $user = new User();
         $user->name = 'admin';
+        $user->surname = 'superAdmin';
+        $user->phone = '93332456';
         $user->email = 'admin@admin';
         $user->password = Hash::make('admin');
-        $user->dni = '12345678H';
         $user->adress = 'C/Admin';
         $user->save();
         // Añadimos una entrada a esta tabla
