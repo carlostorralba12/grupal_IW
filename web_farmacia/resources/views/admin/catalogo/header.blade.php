@@ -22,19 +22,13 @@
 
 <div class="container">
 
-    <h1 style="text-align:center; margin-bottom: 2%;">Administración Catálogo</h1>
+    <a href="/admin/categorias/"><h1 style="text-align:center; margin-bottom: 2%;">Administración Catálogo</h1></a>
 
     <div class="buttons-container">
        
-        @include('admin.catalogo.categoria.addCategoria')
-        @include('admin.catalogo.subcategoria.addSubcategoria')
+        <a href="/admin/categorias/añadir" class="btn btn-success" role="button" aria-pressed="true">Añadir Categoria</a>
+        <a href="/admin/subcategorias/añadir" class="btn btn-secondary" role="button" aria-pressed="true">Añadir Subcategoria</a>
         <a href="/admin/productos/añadir" class="btn btn-primary" role="button" aria-pressed="true">Añadir Producto</a>
-
-        <script>
-            @error ('nombreCategoria')
-                $('#addCategoria').modal('show');
-            @enderror
-        </script>
   
     </div>
 

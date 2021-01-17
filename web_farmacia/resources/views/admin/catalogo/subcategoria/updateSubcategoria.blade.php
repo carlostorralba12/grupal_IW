@@ -1,77 +1,88 @@
+@extends('admin.catalogo.header')
+@section('adminCatalogo')
 
-<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateSubcategoria">
-    Modificar
-</button>
-<!-- Modal -->
-<div class="modal fade" id="updateSubcategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="updateSubcategoria-container" style="margin: 3% 10%;">
 
-    <div class="modal-content">
+    <div class="card text-center" style="margin: auto">
 
-      <div class="modal-header bg-dark text-white">
+        <div class="card-header bg-dark text-white">
+            Modificar Subcategoria
+        </div>
 
-        <h5 class="modal-title" id="exampleModalLongTitle">Modificar Subcategoría</h5>
+        <form action="{{ action('App\Http\Controllers\Admin\CatalogoController@updateSubcategoria', $subcategoria->id) }}" id="form" method="POST" role="form">
+        {{ csrf_field() }}
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="card-body" style="padding:2% 10%;">
 
-          <span aria-hidden="true" style="color:white">&times;</span>
+                <div class="form-row" style="margin: 2%;">
 
-        </button>
+                    <div class="input-group">
 
-      </div>
+                        <div class="input-group-prepend">
 
-      <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CatalogoController@updateSubcategoria', $subcategoria->id) }}" id="form" method="POST" role="form">
-      {{ csrf_field() }}
+                            <label class="input-group-text">Nombre</label>
 
-        <div class="modal-body" id="modalBody">
+                        </div>
 
-          <div class="form-group row">
+                        <input type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" id="nombre" value="{{ $subcategoria->nombre }}"  placeholder="Nombre" required>
 
-              <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                        @error('nombre')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 
-              <div class="col-md-6">
-                  <input id="nombre" type="text" class="form-control" name="nombre" value="{{ $subcategoria->nombre }}" required>
+                    </div>
 
-              </div>
+                </div>
+                            
+                <div class="form-row">
 
-          </div>
-          <div class="form-group row">
+                    <div class="input-group">
 
-            <div class="input-group mb-3" style="margin: 0 15%;">
+                        <div class="input-group-prepend">
 
-              <div class="input-group-prepend">
+                            <label class="input-group-text" for="categoriaSelect">Categoria</label>
 
-                <label class="input-group-text" for="categoriaSelect">Categoria</label>
+                        </div>
 
-              </div>
+                        <select class="custom-select" id="categoriaSelect" name="categoriaID" required>
 
-              <select class="custom-select" id="categoriaSelect" name="categoriaID" required>
+                            <option selected value='{{$subcategoria->categoria_id}}'>{{App\Models\Categoria::find($subcategoria->categoria_id)->nombreCategoria}}</option>
+                            @foreach($selectCategorias as $categoria)
+                                @if($subcategoria->categoria_id != $categoria->id)
+                                <option value='{{$categoria->id}}'>{{$categoria->nombreCategoria}}</option>
+                                @endif
 
-                <option selected>Selecciona</option>
-                @foreach($selectCategorias as $categoria)
-                  <option value="{{$categoria->id}}">{{$categoria->nombreCategoria}}</option>
+                            @endforeach
+                        </select>
 
-                @endforeach
-              </select>
+                        @error('categoriaID')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>Selecciona una categoria</strong>
+                            </span>
+                        @enderror
+
+
+                    </div>
+
+                </div> 
+
+
             </div>
-          </div> 
 
-        </div>
+            <div class="card-footer text-muted">
+            
+                <a id="cancelar" class="btn btn-secondary" href="{{ url()->previous() }}">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Confirmar</button>
 
-        <div class="modal-footer">
-          
-          <button type="button" id="cancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <!--button type="button" id="cancelar" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Cancelar</button-->
-          <button type="submit" class="btn btn-primary">Confirmar</button>
+            </div>
 
-        </div>
-
-      </form>
-
+        </form>
 
     </div>
-
-  </div>
-  
+    
 </div>
+
+@endsection

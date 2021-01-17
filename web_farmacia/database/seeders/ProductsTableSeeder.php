@@ -41,6 +41,37 @@ class ProductsTableSeeder extends Seeder
         $producto2->subcategoria_id = Subcategoria::where('nombre', 'subcategoria 1')->first()->id;
         $producto2->save();
 
+        $producto3 = new Producto();
+        $producto3->nombre = 'couldina';
+        $producto3->pvp = '6';
+        $producto3->descripcionCorta = 'couldina para adultos';
+        $producto3->descripcionLarga = 'medicamente que quita el dolor temporalmente';
+        $producto3->referencia = '00002';
+        $producto3->imagen = 'couldina.jpg';
+        $producto3->subcategoria_id = Subcategoria::where('nombre', 'subcategoria 1')->first()->id;
+        $producto3->save();
+
+        $producto4 = new Producto();
+        $producto4->nombre = 'geniol';
+        $producto4->pvp = '7';
+        $producto4->descripcionCorta = 'geniol para adultos';
+        $producto4->descripcionLarga = 'medicamente que quita el dolor temporalmente';
+        $producto4->referencia = '00003';
+        $producto4->imagen = 'geniol.jpg';
+        $producto4->subcategoria_id = Subcategoria::where('nombre', 'subcategoria 1')->first()->id;
+        $producto4->save();
+
+        $producto5 = new Producto();
+        $producto5->nombre = 'gelocatil';
+        $producto5->pvp = '8';
+        $producto5->descripcionCorta = 'gelocatil para adultos';
+        $producto5->descripcionLarga = 'medicamente que quita el dolor temporalmente';
+        $producto5->referencia = '00004';
+        $producto5->imagen = 'gelocatil.jpg';
+        $producto5->subcategoria_id = Subcategoria::where('nombre', 'subcategoria 1')->first()->id;
+        $producto5->save();
+
+
  
     }
 }

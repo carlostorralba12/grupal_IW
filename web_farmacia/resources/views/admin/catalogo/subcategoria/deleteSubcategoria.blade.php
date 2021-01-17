@@ -31,7 +31,7 @@
     <div class="modal-footer">
         
         <button type="button" id="cancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CatalogoController@deleteSubcategoria', $subcategoria->id) }}" id="form" method="POST" role="form">
+        <form action="{{ action('App\Http\Controllers\Admin\CatalogoController@deleteSubcategoria', $subcategoria->id) }}" id="form" method="POST" role="form">
 
             {{ csrf_field() }}
             <!--button type="button" id="cancelar" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Cancelar</button-->

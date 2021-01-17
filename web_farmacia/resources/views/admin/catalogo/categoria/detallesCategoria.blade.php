@@ -47,11 +47,10 @@
 
         <h3 style="text-transform:capitalize">{{$categoria->nombreCategoria}}</h3>
         <div class="buttons-actions">
-
-            @include('admin.catalogo.categoria.deleteCategoria', $categoria)
             
-            @include('admin.catalogo.categoria.updateCategoria', $categoria)
-
+            @include('admin.catalogo.categoria.deleteCategoria', $categoria)
+            <a href="/admin/categorias/{{$categoria->id}}/modificar" class="btn btn-dark" role="button" aria-pressed="true">Modificar</a>
+        
         </div>
 
     </div>
@@ -77,8 +76,9 @@
     </div>
 
     <div class="buttons-footer">
-        {{$subcategorias->links()}}
+        
         <a class="btn btn-info" style="background-color: #38A641" href="/admin/categorias/">Categorias</a>
+        {{$subcategorias->links()}}
     </div>
    
 </div>

@@ -49,7 +49,7 @@
         <div class="buttons-actions">
 
             @include('admin.catalogo.subcategoria.deleteSubcategoria', $subcategoria)
-            @include('admin.catalogo.subcategoria.updateSubcategoria')
+            <a href="/admin/subcategorias/{{$subcategoria->id}}/modificar" class="btn btn-dark" role="button" aria-pressed="true">Modificar</a>
 
         </div>
 
@@ -76,11 +76,12 @@
     </div>
 
     <div class="buttons-footer">
-        {{$productos->links()}}
+       
         <a class="btn btn-info" style="background-color: #89f07f; text-transform: capitalize" href="/admin/categorias/{{$subcategoria->categoria_id}}">
   
             {{App\Models\Categoria::find($subcategoria->categoria_id)->nombreCategoria}}
         </a>
+        {{$productos->links()}}
     </div>
    
 </div>
