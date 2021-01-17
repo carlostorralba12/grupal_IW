@@ -11,7 +11,7 @@
 
     </div>
 
-    <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CatalogoController@saveProducto') }}" enctype="multipart/form-data" id="form" method="POST" role="form">
+    <form action="{{ action('App\Http\Controllers\Admin\CatalogoController@saveProducto') }}" enctype="multipart/form-data" id="form" method="POST" role="form">
       {{ csrf_field() }}
       <div class="card-body">
       
@@ -27,7 +27,14 @@
 
               </div>
 
-              <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required>
+              <input type="text" class="form-control @error('nombre') is-invalid @enderror"  value="{{ old('nombre') }}" name="nombre" id="nombre" placeholder="Nombre" required>
+
+              @error('nombre')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+
 
             </div>
 
@@ -43,7 +50,14 @@
 
               </div>
 
-              <input type="text" class="form-control" name="referencia" id="referencia" placeholder="Referencia" required>
+              <input type="text" class="form-control @error('referencia') is-invalid @enderror"  value="{{ old('referencia') }}" name="referencia" id="referencia" placeholder="00000" required>
+
+              @error('referencia')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+
 
             </div>
 
@@ -63,13 +77,21 @@
 
               </div>
 
-              <input type="text" class="form-control" name="pvp" placeholder="0.00" required>
+              <input type="text" class="form-control @error('pvp') is-invalid @enderror"  value="{{ old('pvp') }}" name="pvp" placeholder="0.00" required>
 
               <div class="input-group-append">
 
                 <span class="input-group-text">€</span>
 
               </div>
+
+
+              @error('pvp')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+
 
             </div>
           
@@ -85,7 +107,7 @@
 
               </div>
 
-              <select class="custom-select" id="categoriaSelect" name="subcategoriaID" required>
+              <select class="custom-select @error('subcategoriaID') is-invalid @enderror" id="categoriaSelect" name="subcategoriaID"  required>
 
                 <option selected>Selecciona</option>
                 @foreach($selectSubcategorias as $subcategoria)
@@ -93,6 +115,14 @@
 
                 @endforeach
               </select>
+
+
+              @error('subcategoriaID')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>Selecciona una subcategoria</strong>
+                  </span>
+              @enderror
+
             </div>
 
           </div>
@@ -111,7 +141,15 @@
 
               </div>
 
-              <textarea class="form-control" id="descripcionCorta" name="descripcionCorta" rows="2" required></textarea>
+              <textarea class="form-control @error('descripcionCorta') is-invalid @enderror" id="descripcionCorta" 
+              name="descripcionCorta" rows="2" required>{{ old('descripcionCorta') }}</textarea>
+              
+              @error('descripcionCorta')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+
 
             </div>
 
@@ -127,7 +165,16 @@
 
               </div>
 
-              <textarea class="form-control" id="descripcionLarga" name="descripcionLarga" rows="3" required></textarea>
+              <textarea class="form-control @error('descripcionLarga') is-invalid @enderror" id="descripcionLarga" 
+              name="descripcionLarga" rows="3" required>{{ old('descripcionLarga') }}</textarea>
+
+
+              @error('descripcionLarga')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+
 
             </div>
 
@@ -145,10 +192,16 @@
           
           <div class="custom-file">
 
-            <input type="file" class="custom-file-input" id="inputGroupFile01" name="imagen">
+            <input type="file" class="custom-file-input @error('imagen') is-invalid @enderror" id="inputGroupFile01" name="imagen" required>
             <label class="custom-file-label" for="inputGroupFile01">Sin archivos...</label>
-            
+           
           </div>
+
+          @error('imagen')
+              <span class="invalid-feedback" role="alert">
+                  <strong>Imagen inválida</strong>
+              </span>
+          @enderror
 
         </div>
 

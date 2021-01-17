@@ -1,68 +1,54 @@
+@extends('admin.catalogo.header')
+@section('adminCatalogo')
 
+<div class="addCategoria-container" style="margin: 3% 10%;">
 
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addCategoria">
-    Añadir Categoria
-</button>
-<!-- Modal -->
-<div class="modal fade" id="addCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="card text-center" style="margin: auto">
 
-  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="card-header bg-success text-white">
+      Añadir Categoria
+    </div>
 
-    <div class="modal-content" id="modalContent">
+    <form action="{{ action('App\Http\Controllers\Admin\CatalogoController@saveCategoria') }}" id="form" method="POST" role="form">
+    {{ csrf_field() }}
 
-      <div class="modal-header bg-success text-white">
+      <div class="card-body" style="padding:2% 10%;">
+        
+        <div class="form-row">
 
-        <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight:bold;">Añadir Categoría</h5>
+          <div class="input-group">
+              
+            <div class="input-group-prepend">
 
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <label class="input-group-text">Nombre</label>
 
-          <span aria-hidden="true" style="color:white">&times;</span>
+            </div>
 
-        </button>
+            <input type="text" class="form-control @error('nombreCategoria') is-invalid @enderror" name="nombreCategoria" id="nombreCategoria" value="{{ old('nombreCategoria') }}"  placeholder="Nombre" required>
 
-      </div>
-      
-      <form action="{{ action('App\Http\Controllers\Admin\Catalogo\CatalogoController@saveCategoria') }}" id="form" method="POST" role="form">
-      {{ csrf_field() }}
-
-        <div class="modal-body" id="modalBody">
-
-          <div class="form-group row">
-
-              <label for="nombreCategoria" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
-
-              <div class="col-md-6">
-                  <input id="nombreCategoria" type="text" class="form-control" name="nombreCategoria" value="{{ old('nombreCategoria') }}" required>
-                 
-                  <div id="errorNombreAdd" style="margin-top: 2px; color:red; display:none">
-                      <span>El nombre ya está registrado.</span>
-                  </div>
-
-                  <script>
-                      @error ('nombreCategoria')
-                     
-                          $('#errorNombreAdd').show();
-                      @enderror
-                  </script>
-
-              </div>
-
+            @error('nombreCategoria')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+               
           </div>
 
         </div>
+      </div>
 
-        <div class="modal-footer">
-          
-          <button type="button" id="cancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <!--button type="button" id="cancelar" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Cancelar</button-->
-          <button type="submit" class="btn btn-primary">Confirmar</button>
+      <div class="card-footer text-muted">
+      
+        <a id="cancelar" class="btn btn-secondary" href="{{ url()->previous() }}">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Confirmar</button>
 
-        </div>
+      </div>
 
-      </form>
-
-    </div>
+    </form>
 
   </div>
 
 </div>
+
+
+@endsection
