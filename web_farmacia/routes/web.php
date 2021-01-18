@@ -30,6 +30,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
 
 
+Route::middleware('auth')->group(function(){
+    //CARRITO
+    Route::get('carrito', 'App\Http\Controllers\CarritoController@getProductosCarrito');
+});
+
+
+
 /*********************************************************************************** 
  *                                      ADMIN
  ***********************************************************************************/ 

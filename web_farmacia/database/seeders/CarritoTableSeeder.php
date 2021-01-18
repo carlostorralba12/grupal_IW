@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Producto;
 use App\Models\User;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class CarritoTableSeeder extends Seeder
 {
@@ -17,6 +17,10 @@ class CarritoTableSeeder extends Seeder
     public function run()
     {
         DB::table('carrito')->delete();
+        DB::table('carrito')->insert([
+            'producto_id' => Producto::where('nombre', 'paracetamol')->first()->id,
+            'user_id' => User::where('email', 'admin@admin')->first()->id,
+        ]);
         DB::table('carrito')->insert([
             'producto_id' => Producto::where('nombre', 'paracetamol')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id,
@@ -35,6 +39,10 @@ class CarritoTableSeeder extends Seeder
         ]);
         DB::table('carrito')->insert([
             'producto_id' => Producto::where('nombre', 'geniol')->first()->id,
+            'user_id' => User::where('email', 'admin@admin')->first()->id
+        ]);
+        DB::table('carrito')->insert([
+            'producto_id' => Producto::where('nombre', 'ibuprofeno')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id
         ]);
         
