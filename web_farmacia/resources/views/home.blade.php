@@ -112,10 +112,10 @@
     </ul>
     <br>
     <div style="display: flex; align-items: center; justify-content: center ">
-      <a href="#" class="fab fa-facebook"></a>&nbsp&nbsp
-      <a href="#" class="fab fa-youtube"></a>&nbsp&nbsp
-      <a href="#" class="fab fa-twitter"></a>&nbsp&nbsp
-      <a href="#" class="fab fa-instagram"></a>
+      <a href="#" style="cursor: pointer" class="fab fa-facebook"></a>&nbsp&nbsp
+      <a href="#" style="cursor: pointer" class="fab fa-youtube"></a>&nbsp&nbsp
+      <a href="#" style="cursor: pointer" class="fab fa-twitter"></a>&nbsp&nbsp
+      <a href="#" style="cursor: pointer" class="fab fa-instagram"></a>
     </div>
     <br>
     <p class="lead text-justify">Si lo prefieres, envíanos un email: </p>
