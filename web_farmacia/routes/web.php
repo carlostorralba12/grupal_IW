@@ -38,6 +38,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
 
 
+Route::middleware('auth')->group(function(){
+    //CARRITO
+    Route::get('carrito', 'App\Http\Controllers\CarritoController@getProductosCarrito');
+    Route::get('carrito/cantidad/añadir/{id}', 'App\Http\Controllers\CarritoController@addCantidad');
+    Route::get('carrito/cantidad/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteCantidad');
+    Route::get('carrito/producto/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteProducto');
+});
+
+
+
 /*********************************************************************************** 
  *                                      ADMIN
  ***********************************************************************************/ 

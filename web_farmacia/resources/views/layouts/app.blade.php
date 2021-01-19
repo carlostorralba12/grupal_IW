@@ -78,6 +78,12 @@
                             @endif
                         @else
                             @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="/carrito">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ __('Carrito') }}
+                                </a>
+                            </li>
+                    
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                   <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}
