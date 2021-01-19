@@ -37,7 +37,7 @@ class LinpedSeeder extends Seeder
                         }
                     break;
                     case 2:
-                        if($p->id == 2){
+                        if($p->id == 2 || $p->id == 1){
                             $linped = new Linped();
                             $linped->importe = Producto::find(2)->pvp;
                             $linped->cantidad = 1;

@@ -30,6 +30,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
 Route::get('pedidos', 'App\Http\Controllers\PedidoController@showPedido');
 Route::post('borrar_pedido', 'App\Http\Controllers\PedidoController@postPedidoBorrado');
+Route::get('linpeds', 'App\Http\Controllers\LinpedController@showLinpeds');
+Route::get('linped', 'App\Http\Controllers\LinpedController@showLinped');
+Route::post('borrar_linped', 'App\Http\Controllers\LinpedController@postLinpedBorrada');
 
 /*********************************************************************************** 
  *                                      ADMIN
