@@ -37,6 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    
                         @auth
                             @if(Auth::user()->typeUser == 'admin')
                             <div class="nav-item dropdown">
@@ -54,7 +55,6 @@
                             </div>
                             @endif
                         @endauth
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
