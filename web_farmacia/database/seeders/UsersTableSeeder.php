@@ -25,6 +25,16 @@ class UsersTableSeeder extends Seeder
         $user->password = Hash::make('admin');
         $user->adress = 'C/Admin';
         $user->save();
+
+        $user2 = new User();
+        $user2->name = 'usuario';
+        $user2->surname = 'usuario';
+        $user2->phone = '93332456';
+        $user2->typeUser = 'normal';
+        $user2->email = 'usuario@alu';
+        $user2->password = Hash::make('usuario');
+        $user2->adress = 'C/usuario';
+        $user2->save();
         // Añadimos una entrada a esta tabla
         /*User::create([
             'name' => 'admin',

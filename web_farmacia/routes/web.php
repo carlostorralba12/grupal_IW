@@ -28,7 +28,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
-
+Route::get('pedidos', 'App\Http\Controllers\PedidoController@showPedido');
+Route::post('borrar_pedido', 'App\Http\Controllers\PedidoController@postPedidoBorrado');
 
 /*********************************************************************************** 
  *                                      ADMIN
