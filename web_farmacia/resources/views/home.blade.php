@@ -108,7 +108,7 @@
     <ul class="list-group list-group-flush lead">
         <li class="list-group-item"><strong>Teléfono:</strong> 661497558</li>
         <li class="list-group-item"><strong>Dirección:</strong> España, San Vicente del Raspeig, Universidad de Alicante</li>
-        <li class="list-group-item"><strong>Email:</strong> farmawebIW@gmail.com</li>
+        <li class="list-group-item"><strong>Email:</strong> farmaciaiw@gmail.com</li>
     </ul>
     <br>
     <div style="display: flex; align-items: center; justify-content: center">
