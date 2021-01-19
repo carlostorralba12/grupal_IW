@@ -52,81 +52,84 @@
         </div>
     </div>
     <div class="about-content">
-            <div class="about-item">
-                <div class="centrado">
-                    <img src="images/antero.png"/>
-                </div>
-                <br>
-                <hr class="featurette-divider margen">
-                <h3>Antero Guarinos Caballero</h3>
-                <hr class="featurette-divider margen">
-                <br>
-                <div class="centrado" style="display: flex;">
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px" class="fab fa-facebook"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px;" class="fab fa-twitter"></i>
-                    </a>
-                </div>
-                <span style="padding-top: 1%"></span>
+        <div class="about-item">
+            <div class="centrado">
+                <img src="images/antero.png"/>
             </div>
-            <div class="about-item">
-                <div class="centrado">
-                    <img src="images/porra.png"/>
-                </div>
-                <br>
-                <hr class="featurette-divider margen">
-                <h3>Carlos Torralba Ruiz</h3>
-                <hr class="featurette-divider margen">
-                <br>
-                <div class="centrado" style="display: flex; align-items: center;">
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px" class="fab fa-facebook"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px;" class="fab fa-twitter"></i>
-                    </a>
-                </div>
-                <span style="padding-top: 1%"></span>
+            <br>
+            <hr class="featurette-divider margen">
+            <h3>Antero Guarinos Caballero</h3>
+            <hr class="featurette-divider margen">
+            <br>
+            <div class="centrado" style="display: flex;">
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px" class="fab fa-facebook"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px;" class="fab fa-twitter"></i>
+                </a>
             </div>
-            <div class="about-item">
-                <div class="centrado">
-                    <img src="images/gema.png"/>
-                </div>
-                <br>
-                <hr class="featurette-divider margen">
-                <h3>Gema Lozano Jiménez</h3>
-                <hr class="featurette-divider margen">
-                <br>
-                <div class="centrado" style="display: flex; align-items: center;">
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px" class="fab fa-facebook"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
-                    </a>&nbsp&nbsp
-                    <a href="#" style="cursor: pointer">
-                        <i style="font-size:30px;" class="fab fa-twitter"></i>
-                    </a>
-                </div>
-                <span style="padding-top: 1%"></span>
-            </div>
+            <span style="padding-top: 1%"></span>
         </div>
+        <div class="about-item">
+            <div class="centrado">
+                <img src="images/porra.png"/>
+            </div>
+            <br>
+            <hr class="featurette-divider margen">
+            <h3>Carlos Torralba Ruiz</h3>
+            <hr class="featurette-divider margen">
+            <br>
+            <div class="centrado" style="display: flex; align-items: center;">
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px" class="fab fa-facebook"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px;" class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <span style="padding-top: 1%"></span>
+        </div>
+        <div class="about-item">
+            <div class="centrado">
+                <img src="images/gema.png"/>
+            </div>
+            <br>
+            <hr class="featurette-divider margen">
+            <h3>Gema Lozano Jiménez</h3>
+            <hr class="featurette-divider margen">
+            <br>
+            <div class="centrado" style="display: flex; align-items: center;">
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px" class="fab fa-facebook"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
+                </a>&nbsp&nbsp
+                <a href="#" style="cursor: pointer">
+                    <i style="font-size:30px;" class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <span style="padding-top: 1%"></span>
+        </div>
+    </div>
+    <div class="container">
+        <hr class="featurette-divider margen">
+    </div>
 </body>
 @endsection
