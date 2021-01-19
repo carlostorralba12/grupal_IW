@@ -10,6 +10,7 @@
         
         <th>Numero del pedido</th>
         <th>Fecha</th>
+        <th>Estado</th>
         <th></th>
         <th></th>
     </tr>
@@ -17,13 +18,14 @@
         <tr>
         <td>{{$pedido->numpedido}}</td>
         <td>{{$pedido->fecha}}</td>
+        <td>{{$pedido->estado}}</td>
         
             <form action="{{ action('App\Http\Controllers\LinpedController@showLinped') }}" method="GET" role="form">
                 @csrf
                 <input  value ="{{ $pedido->id }}"id="input" type="hidden" name="primaria"></input>
                 
                
-                <td><button class="btn btn-danger" type="submit" value="ver" id="boton" name="action">Ver Pedido</button></td>
+                <td><button class="btn btn-info" type="submit" value="ver" id="boton" name="action">Ver Pedido</button></td>
             </form>
             <form action="{{ action('App\Http\Controllers\PedidoController@postPedidoBorrado') }}" method="POST" role="form">
                 @csrf
@@ -32,7 +34,7 @@
                 <td><button class="btn btn-danger" type="submit" value="ver" id="boton" name="action">Borrar</button></td>
                 
             </form>
-        <tr>
+        </tr>
     @endforeach
     </table>
     

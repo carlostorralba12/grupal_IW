@@ -17,6 +17,7 @@ class CreatePedidosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('numpedido');
             $table->string('fecha');
+            $table->string('estado');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

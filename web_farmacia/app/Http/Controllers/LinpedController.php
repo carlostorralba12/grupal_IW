@@ -21,7 +21,7 @@ class LinpedController extends Controller
     }
     public function showLinped(Request $request){
         $variable = $request->input('primaria');    
-      
+        $NPedido = $request->input('primaria');  
         $linpeds= DB::table('linpeds')->where('pedido_id', $variable)->get();
         $productos = array();
 
@@ -31,13 +31,38 @@ class LinpedController extends Controller
         }
 
         
-        return view('listadoLinped', ['linpeds' => $linpeds], ['productos' => $productos]);
+        return view('listadoLinped', ['NPedido' => $NPedido], ['productos' => $productos])->with('linpeds', $linpeds);
     }
-    public function postLinpedBorrada(Request $request){
-        $variable =$request->input('linped_id');    
-        $linpeds = Linped::find($variable);
-        $linpeds->delete();
-        $linpeds=Linped::paginate(5);
-        return view('listadoLinped', ['linpeds' => $linpeds]);
+    public function deleteProducto($idProducto, $idPedido){
+
+        DB::table('linpeds')->where('producto_id', $idProducto)-> where('pedido_id', $idPedido)->delete();
+       
+       
+        return redirect('pedidos');
+
+    }
+    public function addCantidad($idProducto, $idPedido){
+
+        
+        $affected = DB::table('linpeds')
+              ->where('producto_id', $idProducto)
+              ->where('pedido_id', $idPedido);
+              
+        $affected->increment('cantidad');
+        
+        return redirect('pedidos');
+
+    }
+
+    public function deleteCantidad($idProducto, $idPedido){
+
+        $affected = DB::table('linpeds')
+              ->where('producto_id', $idProducto)
+              ->where('pedido_id', $idPedido);
+              
+        $affected->decrement('cantidad');
+        
+        return redirect('pedidos');
+
     }
 }

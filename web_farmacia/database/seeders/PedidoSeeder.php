@@ -28,6 +28,7 @@ class PedidoSeeder extends Seeder
                 Pedido::create([
                     'numpedido' => ($u->id) + 1,
                     'fecha' => $date->format('d-m-Y'),
+                    'estado' => "pendiente",
                     'user_id' => $u->id,
                 ]);
             }

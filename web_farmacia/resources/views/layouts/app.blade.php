@@ -49,7 +49,7 @@
                                 <div class="dropdown-menu" aria-labelledby="adminDropdown">
 
                                     <a class="dropdown-item" href="/admin/categorias">Catálogo</a>
-                                    <a class="dropdown-item" href="#">Pedidos</a>
+                                    <a class="dropdown-item" href="/admin/pedidos">Pedidos</a>
 
                                 </div>
                             </div>
@@ -83,6 +83,12 @@
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ __('Carrito') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pedidos">
+                                    <i class="fas fa-align-justify" aria-hidden="true"></i> {{ __('Pedidos') }}
+                                </a>
+                            </li>
+                            
                     
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
