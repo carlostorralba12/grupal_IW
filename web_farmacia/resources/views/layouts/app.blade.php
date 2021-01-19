@@ -38,6 +38,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @auth
+                        
+                            <li class="nav-item">
+                                <a class="nav-link" href="/catalogo">
+                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i></i> {{ __('Catalogo') }}
+                                </a>
+                            </li>
                             @if(Auth::user()->typeUser == 'admin')
                             <div class="nav-item dropdown">
                                 

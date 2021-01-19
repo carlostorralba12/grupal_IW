@@ -27,7 +27,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
+Route::get('catalogo', 'App\Http\Controllers\CatalogoController@inicio');
+Route::prefix('catalogo')->group(function(){
+
+    Route::get('productos/{id}', 'App\Http\Controllers\CatalogoController@getProducto');
+    
+});
 
 
 Route::middleware('auth')->group(function(){

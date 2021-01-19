@@ -23,7 +23,7 @@ class CarritoController extends Controller
         
         for($i = 0; $i < count($productos); ++$i){
             
-            for($j = $i+1; $j < count($productos); $j++){
+            for($j = $i+1; $j <= count($productos); $j++){
 
                 if($productos[$i] == $productos[$j]){
                     $productos[$i]->cantidad++;
