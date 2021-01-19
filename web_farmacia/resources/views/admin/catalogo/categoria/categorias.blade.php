@@ -17,7 +17,7 @@
         }
         .categorias-content{
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 50% 50%;
             margin-bottom: 2%;
         }
 
@@ -28,7 +28,7 @@
 
 <div class="categorias-container" style="margin: 3%">
 
-    @include('admin.catalogo.messagesSuccess')
+    @include('admin.catalogo.infoMessages')
     <h2>Categorías</h2>
 
     <div class="categorias-content">
@@ -36,22 +36,11 @@
         @foreach($categorias as $categoria)
             <div class="categoria-item">
                 
-                <span>{{$categoria->nombre}}</span>
+                <span style="padding-top: 1%">{{$categoria->nombreCategoria}}</span>
 
                 <div class="buttons-actions">
-
-                    <button type="button" class="btn btn-danger">Eliminar</button>
-
-                    <span>{{$categoria->id}}</span>
-                    {{--@include('admin.catalogo.categoria.updateCategoria', ['categoria' => $categoria])--}}
-                    @component('admin.catalogo.categoria.updateCategoria', ['categoria' => $categoria])
-                    @endcomponent
-
-                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#updateCategoria">
-                        Modificar
-                    </button>
                                         
-                    <button type="button" class="btn btn-info">Detalles</button>
+                    <a class="btn btn-info" href="/admin/categorias/{{$categoria->id}}">Subcategorías</a>
 
                 </div>
                 
@@ -60,12 +49,5 @@
 
     </div>
     {{$categorias->links()}}
-
-    <script>
-        @error ('nombre')
-            $('#addCategoria').modal('show');
-        @enderror
-    </script>
-
 </div>
 @endsection

@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'admin';
         $user->surname = 'superAdmin';
         $user->phone = '93332456';
+        $user->typeUser = 'admin';
         $user->email = 'admin@admin';
         $user->password = Hash::make('admin');
         $user->adress = 'C/Admin';
