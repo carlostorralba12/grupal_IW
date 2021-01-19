@@ -16,22 +16,23 @@
         <th></th>
         <th></th>
     </tr>
-    @foreach($linpeds as $linped)
+    @foreach($productos as $products)
         <tr>
-            <td><input value ="{{ $linped->id }}" id="input" type="hidden" name="linped_id">{{$linped->id}}</input></td>
-            <td>{{$linped->importe}}</td>
-            <td>{{$linped->cantidad}}</td>
-            <td>{{$linped->producto_id}}</td>
-            <td>{{$linped->pedido_id}}</td>
             
+            <td>{{$products->nombre}}</td>
+            <td>{{$products->imagen}}</td>
+            
+    @endforeach    
+    @foreach($linpeds as $linped)   
             <form action="{{ action('App\Http\Controllers\LinpedController@postLinpedBorrada') }}" method="POST" role="form">
                 @csrf
+                
                 <td><input name="linped_id" type="hidden" value="{{$linped->id}}"></td>
                 <td><button class="btn btn-danger" type="submit" value="borrar" id="boton" name="action">Borrar</button></td>
             </form>
 
         <tr>
-    @endforeach
+        @endforeach    
     </table>
 
     

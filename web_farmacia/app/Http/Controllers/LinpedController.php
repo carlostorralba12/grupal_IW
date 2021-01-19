@@ -25,13 +25,13 @@ class LinpedController extends Controller
         $linpeds= DB::table('linpeds')->where('pedido_id', $variable)->get();
         $productos = array();
 
-        foreach($productosCarrito as $productoID){
+        foreach($linpeds as $productoID){
             $producto = Producto::find($productoID->producto_id);
             array_push($productos, $producto);
         }
 
-        $productos=DB::table('productos')->get();
-        return view('listadoLinped', ['linpeds' => $linpeds]);
+        
+        return view('listadoLinped', ['linpeds' => $linpeds], ['productos' => $productos]);
     }
     public function postLinpedBorrada(Request $request){
         $variable =$request->input('linped_id');    
