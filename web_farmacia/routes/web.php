@@ -24,6 +24,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contacto', function () {
+    return view('contacto');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -33,6 +41,16 @@ Route::post('borrar_pedido', 'App\Http\Controllers\PedidoController@postPedidoBo
 Route::get('linpeds', 'App\Http\Controllers\LinpedController@showLinpeds');
 Route::get('linped', 'App\Http\Controllers\LinpedController@showLinped');
 Route::post('borrar_linped', 'App\Http\Controllers\LinpedController@postLinpedBorrada');
+
+Route::middleware('auth')->group(function(){
+    //CARRITO
+    Route::get('carrito', 'App\Http\Controllers\CarritoController@getProductosCarrito');
+    Route::get('carrito/cantidad/añadir/{id}', 'App\Http\Controllers\CarritoController@addCantidad');
+    Route::get('carrito/cantidad/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteCantidad');
+    Route::get('carrito/producto/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteProducto');
+});
+
+
 
 /*********************************************************************************** 
  *                                      ADMIN

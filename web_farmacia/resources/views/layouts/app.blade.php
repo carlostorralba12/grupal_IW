@@ -37,6 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    
                         @auth
                             @if(Auth::user()->typeUser == 'admin')
                             <div class="nav-item dropdown">
@@ -54,7 +55,6 @@
                             </div>
                             @endif
                         @endauth
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -78,6 +78,12 @@
                             @endif
                         @else
                             @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="/carrito">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ __('Carrito') }}
+                                </a>
+                            </li>
+                    
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                   <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}
@@ -110,10 +116,10 @@
 <footer class="page-footer text-center font-small blue">
 
   <!-- Copyright -->
-  <div class="footer-copyright py-3"><i class="fa fa-copyright" aria-hidden="true"></i> 2020 Copyright: |
+  <div class="footer-copyright py-3"><i class="fa fa-copyright" aria-hidden="true"></i> 2021 Copyright: |
     <a href="{{URL::to('/')}}">FarmaWeb</a> |
-    <a href="{{URL::to('/contact-us')}}">Contacto</a> |
-    <a href="{{URL::to('/nosotros')}}">Sobre nosotros</a>
+    <a href="{{URL::to('/contacto')}}">Contacto</a> |
+    <a href="{{URL::to('/about')}}">Sobre nosotros</a>
   </div>
   <!-- Copyright -->
 
