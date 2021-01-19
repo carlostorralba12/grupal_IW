@@ -36,6 +36,7 @@ class CarritoController extends Controller
             
         
         }
+      
 
         //$total = $this->calcularTotal($productos);
 
@@ -50,6 +51,46 @@ class CarritoController extends Controller
         }
 
         return $total;
+
+    }
+
+    public function deleteProducto($id){
+
+        DB::table('carrito')->where('producto_id', $id)->delete();
+        /*
+        foreach($this->productosCarrito as $productoCarrito){
+
+            if($productoCarrito == $producto){
+                    $producto->cantidad = 1;
+                    $producto->update();
+                    unset($productoCarrito);
+                    $this->productosCarrito = array_values($this->productosCarrito);
+
+            }
+
+        }*/
+       
+        return redirect('carrito');
+
+    }
+
+    public function addCantidad($productoID){
+
+        $producto = Producto::find($productoID);
+        $producto->cantidad++;
+        $producto->update(); 
+        
+        return redirect('carrito');
+
+    }
+
+    public function deleteCantidad($productoID){
+
+        $producto = Producto::find($productoID);
+        $producto->cantidad--;
+        $producto->update(); 
+        
+        return redirect('carrito');
 
     }
 }

@@ -57,6 +57,16 @@
             display: flex;
             justify-content: space-between;
         }
+        .sin-productos{
+            border: 1px solid #e8e8e8;
+            border-radius: 5px;
+            padding:7% 5%;
+            background-color: rgb(0, 255, 255);
+            box-shadow: 5px 10px 18px #888888;
+            text-transform: none;
+            text-align: center;
+            margin: 20% 15%;
+        }
 
     </style>
 
@@ -75,13 +85,21 @@
             <div class="card-body">
 
             <div class="productos-container scrollbar">
+
+                @if(count($productos) < 1)
+                    <div class="sin-productos">
+                        <h4>Tu cesta está vacía añade productos del <b>catálogo</b>.</h4>
+                        <a class="btn btn-info" style="margin: 3%;">Catálogo</a>
+                    </div>
+                   
+                @else
                 @foreach($productos as $producto)
                 <div class="card" style="margin: 2% 4%;">
 
                     <div class="card-header card-producto-header">
 
                         <span style="padding-top: 1%;"><b>{{$producto->nombre}}</b></span>
-                        <button class="btn btn-warning">Quitar del carrito</button>
+                        <a class="btn btn-warning" href="/carrito/producto/eliminar/{{$producto->id}}">Quitar del carrito</a>
 
                     </div>
 
@@ -97,10 +115,11 @@
                         <div class="footer-producto">
 
                             <div class="cantidad-content">
-                                
-                                <button class="btn btn-danger" style="padding: 2%; margin-right: 1%;">-</button>
+                                @if($producto->cantidad > 1)
+                                    <a class="btn btn-danger" style="padding: 2%; margin-right: 1%;" href="/carrito/cantidad/eliminar/{{$producto->id}}">-</a>
+                                @endif
                                 <span class="cantidad">Cantidad: <b>{{$producto->cantidad}}</b></span>
-                                <button class="btn btn-primary" style="padding: 2%; margin-left: 1%">+</button>
+                                <a class="btn btn-primary" style="padding: 2%; margin-left: 1%" href="/carrito/cantidad/añadir/{{$producto->id}}">+</a>
 
                             </div>
                             
@@ -112,6 +131,7 @@
                     </div>
                 </div>
                 @endforeach
+                @endif
             </div>
 
             </div>
@@ -119,13 +139,13 @@
             <div class="card-footer">
 
                 <div style="display: flex; justify-content: space-between;">
-                    
+                @if(count($productos) > 1)
                     <div style="text-align: left; width: 50%;">
-
+                  
                         <span style="font-size: 20px;"><b>Total: </b></span>
 
                         <span class="total-importe">{{App\Http\Controllers\CarritoController::calcularTotal($productos)}} €</span>
-
+                    
                     </div>
 
                     <div style="text-align: right; width: 50%">
@@ -133,7 +153,7 @@
                         <button type="button" class="btn btn-primary">Comprar</button>
 
                     </div>
-
+                @endif
                 </div>
               
             </div>
