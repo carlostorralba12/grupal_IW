@@ -111,11 +111,19 @@
         <li class="list-group-item"><strong>Email:</strong> farmawebIW@gmail.com</li>
     </ul>
     <br>
-    <div style="display: flex; align-items: center; justify-content: center ">
-      <a href="#" style="cursor: pointer" class="fab fa-facebook"></a>&nbsp&nbsp
-      <a href="#" style="cursor: pointer" class="fab fa-youtube"></a>&nbsp&nbsp
-      <a href="#" style="cursor: pointer" class="fab fa-twitter"></a>&nbsp&nbsp
-      <a href="#" style="cursor: pointer" class="fab fa-instagram"></a>
+    <div style="display: flex; align-items: center; justify-content: center">
+        <a href="#" style="cursor: pointer">
+            <i style="font-size:30px; color:black" class="fab fa-facebook"></i>
+        </a>&nbsp&nbsp
+        <a href="#" style="cursor: pointer">
+            <i style="font-size:30px; color:black" class="fab fa-youtube"></i>
+        </a>&nbsp&nbsp
+        <a href="#" style="cursor: pointer">
+            <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
+        </a>&nbsp&nbsp
+        <a href="#" style="cursor: pointer">
+            <i style="font-size:30px; color:black" class="fab fa-twitter"></i>
+        </a>
     </div>
     <br>
     <p class="lead text-justify">Si lo prefieres, envíanos un email: </p>
