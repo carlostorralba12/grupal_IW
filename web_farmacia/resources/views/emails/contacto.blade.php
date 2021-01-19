@@ -27,11 +27,6 @@
     <div class="container">
         <h4>Escríbenos tu pregunta</h4>
         <br>
-        <!--@if(Session::has('success'))
-            <div class="alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-        @endif-->
         {!! Form::open(['route'=>'contacto.store']) !!}
 
         <div class="form-group {{ $errors->has('nombre') ? 'has-error' : '' }}">
@@ -69,16 +64,16 @@
             <br>
             <div style="display: flex; align-items: center; justify-content:center">
                 <h5><strong>Redes sociales:</strong></h5>&nbsp&nbsp&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.facebook.com/" style="cursor: pointer">
                     <i style="font-size:30px;" class="fab fa-facebook"></i>
                 </a>&nbsp&nbsp&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
                     <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
                 </a>&nbsp&nbsp&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.instagram.com/" style="cursor: pointer">
                     <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
                 </a>&nbsp&nbsp&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://twitter.com/" style="cursor: pointer">
                     <i style="font-size:30px;" class="fab fa-twitter"></i>
                 </a>
             </div>

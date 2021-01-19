@@ -1,7 +1,7 @@
 Hola,
 
 
-Has recibido un mensaje de : {{ $nombre }}
+has recibido un mensaje de: {{ $nombre }}
 
 
  

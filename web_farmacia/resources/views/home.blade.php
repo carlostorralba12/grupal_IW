@@ -24,13 +24,6 @@
     <div class="container" style="text-align:center">
         <br>
         <h1>Bienvenidos/as a FarmaWeb</h1>
-        <!--<div class="card-body">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-        </div>-->
     </div>
     
     <div class="container marketing">
@@ -90,14 +83,14 @@
     <hr class="featurette-divider margen">
     <div class="row featurette">
         <div class="text-center">
-        <h2 class="featurette-heading">CLIENTES</h2>
-        <p class="lead text-justify">Hazte cliente nuestro y podrás disfrutar de todos nuestros productos, añadirlos a favoritos,
-        aumentar tu lista de la compra e incluso podrás optar a todo tipo de ofertas.</p>
-        @if(!Auth::check())
-        <a href="{{ route('register') }}" class="btn btn-primary btn-lg btn-block">REGÍSTRATE</a>
-        <br>
-        @endif
-    </div>
+            <h2 class="featurette-heading">CLIENTES</h2>
+            <p class="lead text-justify">Hazte cliente nuestro y podrás disfrutar de todos nuestros productos, añadirlos a favoritos,
+            aumentar tu lista de la compra e incluso podrás optar a todo tipo de ofertas.</p>
+            @if(!Auth::check())
+            <a href="{{ route('register') }}" class="btn btn-primary btn-lg btn-block">REGÍSTRATE</a>
+            <br>
+            @endif
+        </div>
     </div>
 
     <hr class="featurette-divider margen">
@@ -112,16 +105,16 @@
     </ul>
     <br>
     <div style="display: flex; align-items: center; justify-content: center">
-        <a href="#" style="cursor: pointer">
+        <a href="https://www.facebook.com/" style="cursor: pointer">
             <i style="font-size:30px; color:black" class="fab fa-facebook"></i>
         </a>&nbsp&nbsp
-        <a href="#" style="cursor: pointer">
+        <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
             <i style="font-size:30px; color:black" class="fab fa-youtube"></i>
         </a>&nbsp&nbsp
-        <a href="#" style="cursor: pointer">
+        <a href="https://www.instagram.com/" style="cursor: pointer">
             <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
         </a>&nbsp&nbsp
-        <a href="#" style="cursor: pointer">
+        <a href="https://twitter.com/" style="cursor: pointer">
             <i style="font-size:30px; color:black" class="fab fa-twitter"></i>
         </a>
     </div>
