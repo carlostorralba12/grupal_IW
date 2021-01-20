@@ -26,10 +26,7 @@
             justify-content: space-between;
 
         }
-        .productos-container{
-          
-            margin-top: 4%;
-        }
+    
         .producto-item{
             margin: 3%;
         }
@@ -99,6 +96,14 @@
   
     <div class="productos-container ">
         <h2 style="margin-bottom: 2%;">Productos <span class="title-categoria">{{$categoria->nombreCategoria}}</span></h2> 
+        @if(session()->has('error'))
+            <div class="alert alert-warning">
+               <span> El producto: <b>{{ session()->get('error') }}</b> ya existe en la lista de deseos</span> 
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         <div class="scrollbar">
 
             @foreach($productos as $producto)
@@ -128,8 +133,11 @@
                     </div>
                     <div class="card-footer text-muted producto-footer">
                         
-                        <button class="btn btn-warning">Añadir a favoritos</button>
+                        @auth
+                        <a class="btn btn-warning" href="/catalogo/favoritos/{{$producto->id}}">Añadir a favoritos</a>
                         <a class="btn btn-info" href="/catalogo/carrito/{{$producto->id}}">Añadir a cesta</a>
+                        @endauth
+
                     </div>
 
                 </div>

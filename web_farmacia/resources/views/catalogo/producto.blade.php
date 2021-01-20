@@ -60,7 +60,15 @@
 
 <div class="container">
     <a href="/catalogo"><h1 style="text-align:center; margin-bottom: 2%;">Catálogo</h1></a>
-
+      
+    @if(session()->has('error'))
+        <div class="alert alert-warning">
+            <span> El producto: <b>{{ session()->get('error') }}</b> ya existe en la lista de deseos</span> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <div class="producto-container"style="margin: 3% 10%">
         
         <div class="card">
@@ -111,8 +119,10 @@
         
             <div class="buttons-acciones">
             
-                <button class="btn btn-warning">Añadir a favoritos</button>
+              @auth
+                <a class="btn btn-warning" href="/catalogo/favoritos/{{$producto->id}}">Añadir a favoritos</a>
                 <a class="btn btn-info" href="/catalogo/carrito/{{$producto->id}}">Añadir a cesta</a>
+              @endauth
 
             </div>
         

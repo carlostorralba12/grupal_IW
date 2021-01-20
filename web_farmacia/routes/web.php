@@ -27,23 +27,38 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('catalogo', 'App\Http\Controllers\CatalogoController@inicio');
-Route::prefix('catalogo')->group(function(){
 
+
+//CATALOGO
+Route::prefix('catalogo')->group(function(){
+    Route::get('', 'App\Http\Controllers\CatalogoController@inicio');
     Route::get('productos/{id}', 'App\Http\Controllers\CatalogoController@getProducto');
     Route::get('categorias/{id}', 'App\Http\Controllers\CatalogoController@getCategoria');
     Route::get('subcategorias/{id}', 'App\Http\Controllers\CatalogoController@getSubcategoria');
     Route::get('carrito/{id}', 'App\Http\Controllers\CatalogoController@addCarrito');
+    Route::get('favoritos/{id}', 'App\Http\Controllers\CatalogoController@addFavoritos');
     
 });
 
 
 Route::middleware('auth')->group(function(){
     //CARRITO
-    Route::get('carrito', 'App\Http\Controllers\CarritoController@getProductosCarrito');
-    Route::get('carrito/cantidad/añadir/{id}', 'App\Http\Controllers\CarritoController@addCantidad');
-    Route::get('carrito/cantidad/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteCantidad');
-    Route::get('carrito/producto/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteProducto');
+    Route::prefix('carrito')->group(function(){
+        Route::get('', 'App\Http\Controllers\CarritoController@getProductosCarrito');
+        Route::get('cantidad/añadir/{id}', 'App\Http\Controllers\CarritoController@addCantidad');
+        Route::get('cantidad/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteCantidad');
+        Route::get('producto/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteProducto');
+
+    });
+
+    //FAVORITOS
+    Route::prefix('favoritos')->group(function(){
+        Route::get('', 'App\Http\Controllers\FavoritosController@getProductosFavoritos');
+        Route::get('producto/eliminar/{id}', 'App\Http\Controllers\FavoritosController@deleteProducto');
+        Route::get('carrito/{id}', 'App\Http\Controllers\FavoritosController@addCarrito');
+
+    });
+   
 });
 
 

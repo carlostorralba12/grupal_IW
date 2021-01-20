@@ -37,13 +37,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                                <a class="nav-link" href="/catalogo">
+                                <i class="fa fa-shopping-basket" aria-hidden="true"></i> {{ __('Catalogo') }}
+                            </a>
+                        </li>
                         @auth
                         
-                            <li class="nav-item">
-                                <a class="nav-link" href="/catalogo">
-                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i></i> {{ __('Catalogo') }}
-                                </a>
-                            </li>
+                            
                             @if(Auth::user()->typeUser == 'admin')
                             <div class="nav-item dropdown">
                                 
@@ -52,7 +53,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="adminDropdown">
-
+                                  
                                     <a class="dropdown-item" href="/admin/categorias">Catálogo</a>
                                     <a class="dropdown-item" href="#">Pedidos</a>
 
@@ -96,6 +97,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/favoritos"><i class="fa fa-heart" aria-hidden="true"></i> Favoritos</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

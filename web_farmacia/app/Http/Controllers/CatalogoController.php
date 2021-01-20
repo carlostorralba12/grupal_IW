@@ -117,4 +117,42 @@ class CatalogoController extends Controller
         return redirect('carrito')->with('producto', $producto);
 
     }
+
+    public function addFavoritos($productoID){
+
+        $user = Auth::user();
+        $favoritosUser = DB::table('favoritos')->where('user_id', $user->id)->get();
+        $existsProduct = false;
+        if(count($favoritosUser) > 0){    
+
+            foreach($favoritosUser as $favorito){
+                if($favorito->producto_id == $productoID){
+                   $existsProduct = true;
+                }
+            }
+            if(!$existsProduct){
+                DB::table('favoritos')->insert([
+                    'producto_id' => $productoID,
+                    'user_id' => $user->id,
+
+                ]);
+            }
+        }
+        else{
+            DB::table('favoritos')->insert([
+                'producto_id' => $productoID,
+                'user_id' => $user->id,
+            ]);
+        }
+        $producto = Producto::find($productoID);
+        if($existsProduct){
+            var_dump('gol');
+            return back()->with('error', $producto->nombre);
+        }
+        else{
+            
+            return redirect('favoritos')->with('producto', $producto);
+        }
+    
+    }
 }
