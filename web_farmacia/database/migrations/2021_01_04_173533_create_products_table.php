@@ -18,9 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('nombre')->unique();
             $table->float('pvp');
             $table->string('referencia');
-            $table->string('descripcionCorta');
-            $table->string('descripcionLarga');
-            $table->integer('cantidad')->default('1');
+            $table->mediumText('descripcionCorta');
+            $table->longText('descripcionLarga');
             $table->string('imagen');
             $table->bigInteger('subcategoria_id')->unsigned();
             $table->foreign('subcategoria_id')->references('id')->on('subcategorias')->onUpdate('cascade')->onDelete('cascade');
