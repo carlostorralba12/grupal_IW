@@ -15,6 +15,7 @@ class CreateCarritoTable extends Migration
     {
         Schema::create('carrito', function (Blueprint $table) {
             $table->id();
+            $table->integer('cantidad');
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->bigInteger('producto_id')->unsigned()->nullable();

@@ -37,8 +37,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    
+
+                        <li class="nav-item">
+                                <a class="nav-link" href="/catalogo">
+                                <i class="fa fa-shopping-basket" aria-hidden="true"></i> {{ __('Catalogo') }}
+                            </a>
+                        </li>
                         @auth
+                        
+                            
                             @if(Auth::user()->typeUser == 'admin')
                             <div class="nav-item dropdown">
                                 
@@ -47,7 +54,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="adminDropdown">
-
+                                  
                                     <a class="dropdown-item" href="/admin/categorias">Catálogo</a>
                                     <a class="dropdown-item" href="/admin/pedidos">Pedidos</a>
 
@@ -82,6 +89,13 @@
                                 <a class="nav-link" href="/carrito">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ __('Carrito') }}
                                 </a>
+
+                                
+                            </li>
+                            <li class="nav-item">
+                                
+                             <a class="nav-link" href="/favoritos"><i class="fa fa-heart" aria-hidden="true"></i> Favoritos</a>
+
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/pedidos">
@@ -96,6 +110,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

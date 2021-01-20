@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-
-
 Route::get('/', function () {
     return view('home');
 });
@@ -28,20 +26,28 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/contacto', function () {
-    return view('contacto');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('catalogo', 'App\Http\Controllers\ProductosController@showCatalogo');
+
 Route::get('pedidos', 'App\Http\Controllers\PedidoController@showPedido');
 Route::post('borrar_pedido', 'App\Http\Controllers\PedidoController@postPedidoBorrado');
 Route::get('linpeds', 'App\Http\Controllers\LinpedController@showLinpeds');
 
 Route::post('borrar_linped', 'App\Http\Controllers\LinpedController@postLinpedBorrada');
 
+
+
+//CATALOGO
+Route::prefix('catalogo')->group(function(){
+    Route::get('', 'App\Http\Controllers\CatalogoController@inicio');
+    Route::get('productos/{id}', 'App\Http\Controllers\CatalogoController@getProducto');
+    Route::get('categorias/{id}', 'App\Http\Controllers\CatalogoController@getCategoria');
+    Route::get('subcategorias/{id}', 'App\Http\Controllers\CatalogoController@getSubcategoria');
+    Route::get('carrito/{id}', 'App\Http\Controllers\CatalogoController@addCarrito');
+    Route::get('favoritos/{id}', 'App\Http\Controllers\CatalogoController@addFavoritos');
+    
+});
 
 Route::middleware('auth')->group(function(){
     //CARRITO
@@ -54,6 +60,22 @@ Route::middleware('auth')->group(function(){
     Route::get('linped/producto/eliminar/{idProducto}/{idPedido}', 'App\Http\Controllers\LinpedController@deleteProducto');
     Route::get('linped/cantidad/añadir/{idProducto}/{idPedido}', 'App\Http\Controllers\LinpedController@addCantidad');
     Route::get('linped/cantidad/eliminar/{idProducto}/{idPedido}', 'App\Http\Controllers\LinpedController@deleteCantidad');
+    Route::prefix('carrito')->group(function(){
+        Route::get('', 'App\Http\Controllers\CarritoController@getProductosCarrito');
+        Route::get('cantidad/añadir/{id}', 'App\Http\Controllers\CarritoController@addCantidad');
+        Route::get('cantidad/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteCantidad');
+        Route::get('producto/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteProducto');
+
+    });
+
+    //FAVORITOS
+    Route::prefix('favoritos')->group(function(){
+        Route::get('', 'App\Http\Controllers\FavoritosController@getProductosFavoritos');
+        Route::get('producto/eliminar/{id}', 'App\Http\Controllers\FavoritosController@deleteProducto');
+        Route::get('carrito/{id}', 'App\Http\Controllers\FavoritosController@addCarrito');
+
+    });
+   
 });
 
 
@@ -96,3 +118,10 @@ Route::middleware('admin')->group(function(){
     });
    
 });
+
+// Contacto
+Route::get('contacto', 'App\Http\Controllers\ContactoController@contacto');
+Route::post('contacto', [
+    'as'=>'contacto.store',
+    'uses'=>'App\Http\Controllers\ContactoController@contactoPost'
+]);

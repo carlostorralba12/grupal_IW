@@ -74,12 +74,12 @@
 
 <div class="container">
 
-    <div class="carrito-container" style="width: 80%; margin: auto">
+    <div class="favoritos-container" style="width: 80%; margin: auto">
 
         @if(session('producto'))
             <div class="alert alert-success" role="alert">
 
-            <span>El producto: <strong>{{session('producto')->nombre}}</strong> se ha añadido al carrito. 
+            <span>El producto: <strong>{{session('producto')->nombre}}</strong> se ha añadido a la lista de favoritos. 
                 <a href="/catalogo/productos/{{session('producto')->id}}" class="alert-link">Picha aquí</a>
                 para ver sus detalles
             </span>
@@ -96,7 +96,7 @@
         <div class="card">
 
             <div class="card-header" style="font-size: 25px;">
-                <span><b>Carrito <i class="fa fa-shopping-cart" aria-hidden="true"></i></b></span>
+                <span><b><i class="fa fa-heart" aria-hidden="true"></i> Favoritos</b></span>
             </div>
 
             <div class="card-body">
@@ -105,18 +105,18 @@
 
                 @if(count($productos) < 1)
                     <div class="sin-productos">
-                        <h4>Tu cesta está vacía añade productos del <b>catálogo</b>.</h4>
-                        <a class="btn btn-info" style="margin: 3%;" href="/catalogo"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Catálogo</a>
+                        <h4>Tu lista favoritos está vacía añade productos del <b>catálogo</b>.</h4>
+                        <a class="btn btn-info" style="margin: 3%;" href="/catalogo"><i class="fa fa-shopping-basket" aria-hidden="true"></i>  Catálogo</a>
                     </div>
                    
                 @else
-                @for($i = 0; $i < count($productos); $i++)
+                @foreach($productos as $producto)
                 <div class="card" style="margin: 2% 4%;">
 
                     <div class="card-header card-producto-header">
 
-                        <span style="padding-top: 1%;"><b>{{$productos[$i]->nombre}}</b></span>
-                        <a class="btn btn-warning" href="/carrito/producto/eliminar/{{$productos[$i]->id}}">Quitar del carrito</a>
+                        <span style="padding-top: 1%;"><b>{{$producto->nombre}}</b></span>
+                        <a class="btn btn-warning" href="/favoritos/producto/eliminar/{{$producto->id}}">Quitar de favoritos</a>
 
                     </div>
 
@@ -124,30 +124,22 @@
 
                         <div class="header-producto">
 
-                            <img src="{{asset('images/productos/'. $productos[$i]->imagen)}}" class="image-product">
-                            <span style="margin: auto 0;">{{$productos[$i]->descripcionCorta}}</span>
+                            <img src="{{asset('images/productos/'. $producto->imagen)}}" class="image-product">
+                            <span style="margin: auto 0;">{{$producto->descripcionCorta}}</span>
 
                         </div>
 
                         <div class="footer-producto">
-
-                            <div class="cantidad-content">
-                                @if($cantidades[$i] > 1)
-                                    <a class="btn btn-danger" style="padding: 2%; margin-right: 1%;" href="/carrito/cantidad/eliminar/{{$productos[$i]->id}}">-</a>
-                                @endif
-                                <span class="cantidad">Cantidad: <b>{{$cantidades[$i]}}</b></span>
-                                <a class="btn btn-primary" style="padding: 2%; margin-left: 1%" href="/carrito/cantidad/añadir/{{$productos[$i]->id}}">+</a>
-
-                            </div>
-                            
-                            <span class="pvp">{{$productos[$i]->pvp}} €</span>
+                          
+                            <a class="btn btn-info" href="/favoritos/carrito/{{$producto->id}}">Añadir a la cesta</a>
+                            <span class="pvp">{{$producto->pvp}} €</span>
                             
 
                         </div>
                        
                     </div>
                 </div>
-                @endfor
+                @endforeach
                 @endif
             </div>
 
@@ -155,6 +147,7 @@
 
             <div class="card-footer">
 
+                {{--
                 <div style="display: flex; justify-content: space-between;">
                 @if(count($productos) > 1)
                     <div style="text-align: left; width: 50%;">
@@ -171,7 +164,7 @@
 
                     </div>
                 @endif
-                </div>
+                </div>--}}
               
             </div>
         
