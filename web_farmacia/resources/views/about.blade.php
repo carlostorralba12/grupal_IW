@@ -62,16 +62,16 @@
             <hr class="featurette-divider margen">
             <br>
             <div class="centrado" style="display: flex;">
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.facebook.com/" style="cursor: pointer">
                     <i style="font-size:30px" class="fab fa-facebook"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
                     <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.instagram.com/" style="cursor: pointer">
                     <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://twitter.com/" style="cursor: pointer">
                     <i style="font-size:30px;" class="fab fa-twitter"></i>
                 </a>
             </div>
@@ -87,16 +87,16 @@
             <hr class="featurette-divider margen">
             <br>
             <div class="centrado" style="display: flex; align-items: center;">
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.facebook.com/" style="cursor: pointer">
                     <i style="font-size:30px" class="fab fa-facebook"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
                     <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.instagram.com/" style="cursor: pointer">
                     <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://twitter.com/" style="cursor: pointer">
                     <i style="font-size:30px;" class="fab fa-twitter"></i>
                 </a>
             </div>
@@ -112,16 +112,16 @@
             <hr class="featurette-divider margen">
             <br>
             <div class="centrado" style="display: flex; align-items: center;">
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.facebook.com/" style="cursor: pointer">
                     <i style="font-size:30px" class="fab fa-facebook"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
                     <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://www.instagram.com/" style="cursor: pointer">
                     <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
                 </a>&nbsp&nbsp
-                <a href="#" style="cursor: pointer">
+                <a href="https://twitter.com/" style="cursor: pointer">
                     <i style="font-size:30px;" class="fab fa-twitter"></i>
                 </a>
             </div>
