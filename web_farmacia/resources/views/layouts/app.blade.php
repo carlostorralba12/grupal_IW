@@ -89,6 +89,13 @@
                                 <a class="nav-link" href="/carrito">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ __('Carrito') }}
                                 </a>
+
+                                
+                            </li>
+                            <li class="nav-item">
+                                
+                             <a class="nav-link" href="/favoritos"><i class="fa fa-heart" aria-hidden="true"></i> Favoritos</a>
+
                             </li>
                     
                             <li class="nav-item dropdown">
@@ -97,7 +104,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/favoritos"><i class="fa fa-heart" aria-hidden="true"></i> Favoritos</a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
