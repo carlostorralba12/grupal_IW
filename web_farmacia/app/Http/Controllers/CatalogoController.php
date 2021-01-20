@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Producto;
 use App\Models\Subcategoria;
+use App\Models\User;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CatalogoController extends Controller
 {
@@ -38,8 +40,6 @@ class CatalogoController extends Controller
     
         $subcategorias = $categoria->subcategorias;
      
-
-   
         foreach($subcategorias as $subcategoria){
 
             $subcategoriaProductos = $subcategoria->productos;
@@ -51,6 +51,7 @@ class CatalogoController extends Controller
         }
         $path = 'catalogo/categorias/'.$categoria->id;
         $subcategorias = $this->paginate($subcategorias, $path);
+
         return view('catalogo.categoria')->with('subcategorias', $subcategorias)->with('productos', $productos)
         ->with('categoria', $categoria);
         
@@ -77,5 +78,43 @@ class CatalogoController extends Controller
         $paginator = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, ['path' => url($path)]);
        
         return $paginator;
+    }
+
+    public function addCarrito($productoID){
+
+        $user = Auth::user();
+        $carritoUser = DB::table('carrito')->where('user_id', $user->id)->get();
+        $existsProduct = false;
+        if(count($carritoUser) > 0){    
+
+            foreach($carritoUser as $carrito){
+                if($carrito->producto_id == $productoID){
+                    $existsProduct = true;
+                    $productoCarrito = DB::table('carrito')->where('producto_id', $productoID)->first();  
+                    $cantidad = $productoCarrito->cantidad + 1;
+                    DB::table('carrito')->where('producto_id', $productoID)->update([
+                        'cantidad' => $cantidad,
+                    ]);
+                }
+            }
+            if(!$existsProduct){
+                DB::table('carrito')->insert([
+                    'producto_id' => $productoID,
+                    'user_id' => $user->id,
+                    'cantidad' => 1,
+                ]);
+            }
+        }
+        else{
+            DB::table('carrito')->insert([
+                'producto_id' => $productoID,
+                'user_id' => $user->id,
+                'cantidad' => 1,
+            ]);
+        }
+        
+        $producto = Producto::find($productoID);
+        return redirect('carrito')->with('producto', $producto);
+
     }
 }

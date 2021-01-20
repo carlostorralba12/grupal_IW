@@ -76,6 +76,23 @@
 
     <div class="carrito-container" style="width: 80%; margin: auto">
 
+        @if(session('producto'))
+            <div class="alert alert-success" role="alert">
+
+            <span>El producto: <strong>{{session('producto')->nombre}}</strong> se ha añadido a la cesta. 
+                <a href="/catalogo/productos/{{session('producto')->id}}" class="alert-link">Picha aquí</a>
+                para ver sus detalles
+            </span>
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                
+            </div>
+        @endif
+
+
+
         <div class="card">
 
             <div class="card-header" style="font-size: 25px;">
@@ -93,13 +110,13 @@
                     </div>
                    
                 @else
-                @foreach($productos as $producto)
+                @for($i = 0; $i < count($productos); $i++)
                 <div class="card" style="margin: 2% 4%;">
 
                     <div class="card-header card-producto-header">
 
-                        <span style="padding-top: 1%;"><b>{{$producto->nombre}}</b></span>
-                        <a class="btn btn-warning" href="/carrito/producto/eliminar/{{$producto->id}}">Quitar del carrito</a>
+                        <span style="padding-top: 1%;"><b>{{$productos[$i]->nombre}}</b></span>
+                        <a class="btn btn-warning" href="/carrito/producto/eliminar/{{$productos[$i]->id}}">Quitar del carrito</a>
 
                     </div>
 
@@ -107,30 +124,30 @@
 
                         <div class="header-producto">
 
-                            <img src="{{asset('images/productos/'. $producto->imagen)}}" class="image-product">
-                            <span style="margin: auto 0;">{{$producto->descripcionCorta}}</span>
+                            <img src="{{asset('images/productos/'. $productos[$i]->imagen)}}" class="image-product">
+                            <span style="margin: auto 0;">{{$productos[$i]->descripcionCorta}}</span>
 
                         </div>
 
                         <div class="footer-producto">
 
                             <div class="cantidad-content">
-                                @if($producto->cantidad > 1)
-                                    <a class="btn btn-danger" style="padding: 2%; margin-right: 1%;" href="/carrito/cantidad/eliminar/{{$producto->id}}">-</a>
+                                @if($cantidades[$i] > 1)
+                                    <a class="btn btn-danger" style="padding: 2%; margin-right: 1%;" href="/carrito/cantidad/eliminar/{{$productos[$i]->id}}">-</a>
                                 @endif
-                                <span class="cantidad">Cantidad: <b>{{$producto->cantidad}}</b></span>
-                                <a class="btn btn-primary" style="padding: 2%; margin-left: 1%" href="/carrito/cantidad/añadir/{{$producto->id}}">+</a>
+                                <span class="cantidad">Cantidad: <b>{{$cantidades[$i]}}</b></span>
+                                <a class="btn btn-primary" style="padding: 2%; margin-left: 1%" href="/carrito/cantidad/añadir/{{$productos[$i]->id}}">+</a>
 
                             </div>
                             
-                            <span class="pvp">{{$producto->pvp}} €</span>
+                            <span class="pvp">{{$productos[$i]->pvp}} €</span>
                             
 
                         </div>
                        
                     </div>
                 </div>
-                @endforeach
+                @endfor
                 @endif
             </div>
 
@@ -144,7 +161,7 @@
                   
                         <span style="font-size: 20px;"><b>Total: </b></span>
 
-                        <span class="total-importe">{{App\Http\Controllers\CarritoController::calcularTotal($productos)}} €</span>
+                        <span class="total-importe">{{App\Http\Controllers\CarritoController::calcularTotal($productos, $cantidades)}} €</span>
                     
                     </div>
 

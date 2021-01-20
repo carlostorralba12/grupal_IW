@@ -120,7 +120,7 @@
                     <div class="card-footer text-muted producto-footer">
                         
                         <button class="btn btn-warning">Añadir a favoritos</button>
-                        <button class="btn btn-info">Añadir a cesta</button>
+                        <a class="btn btn-info" href="/catalogo/carrito/{{$producto->id}}">Añadir a cesta</a>
 
                     </div>
 
