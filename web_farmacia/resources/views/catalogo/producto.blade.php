@@ -45,6 +45,14 @@
         flex-direction: column;
       }
 
+      .title-subcategoria{
+            border: 1px solid #6fb7cb;
+            border-radius: 10px;
+            padding: 1%;
+            background-color: #6fb7cb;
+            text-transform: capitalize;
+        }
+
 
   </style>
 
@@ -60,6 +68,7 @@
         <div class="card-header producto-header">
 
             <span class="producto-titulo">{{$producto->nombre}}</span>
+            <a class="btn title-subcategoria" href="/catalogo/subcategorias/{{$subcategoria->id}}">{{$subcategoria->nombre}}</a>
 
         </div>
 

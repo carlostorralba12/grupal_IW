@@ -89,7 +89,7 @@
                 @if(count($productos) < 1)
                     <div class="sin-productos">
                         <h4>Tu cesta está vacía añade productos del <b>catálogo</b>.</h4>
-                        <a class="btn btn-info" style="margin: 3%;">Catálogo</a>
+                        <a class="btn btn-info" style="margin: 3%;" href="/catalogo">Catálogo</a>
                     </div>
                    
                 @else

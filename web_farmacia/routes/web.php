@@ -31,6 +31,8 @@ Route::get('catalogo', 'App\Http\Controllers\CatalogoController@inicio');
 Route::prefix('catalogo')->group(function(){
 
     Route::get('productos/{id}', 'App\Http\Controllers\CatalogoController@getProducto');
+    Route::get('categorias/{id}', 'App\Http\Controllers\CatalogoController@getCategoria');
+    Route::get('subcategorias/{id}', 'App\Http\Controllers\CatalogoController@getSubcategoria');
     
 });
 

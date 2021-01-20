@@ -7,22 +7,23 @@
 
     <style>
 
-        .categorias-container{
+        .subcategorias-container{
             margin: 2%;
             display: flex;
             justify-content: space-around;
-            border: 1px solid #65e38f;
+            border: 1px solid #6fb7cb;
             border-radius: 10px;
             padding: 1%;
-            background-color: #65e38f;
+            background-color: #6fb7cb;
             box-shadow: 5px 10px 18px #888888;
 
         }
 
-        .categorias-links{
-
+        .subcategorias-links{
+            
             margin-top: 3%;
-            text-align: right;
+            display: flex;
+            justify-content: space-between;
 
         }
         .productos-container{
@@ -61,6 +62,13 @@
             display: flex;
             justify-content: space-between;
         }
+        .title-categoria{
+            border: 1px solid #65e38f;
+            border-radius: 10px;
+            padding: 1%;
+            background-color: #65e38f;
+            text-transform: capitalize;
+        }
     </style>
 
 </head>
@@ -69,13 +77,13 @@
 
     <a href="/catalogo"><h1 style="text-align:center; margin-bottom: 2%;">Catálogo</h1></a>
 
-    <div class="categorias-container">
+    <div class="subcategorias-container">
          
-        @foreach($categorias as $categoria)
+        @foreach($subcategorias as $subcategoria)
     
-            <div class="categoria-item">
+            <div class="subcategoria-item">
 
-                <a class="btn btn-light" href="/catalogo/categorias/{{$categoria->id}}"> {{$categoria->nombreCategoria}}</a>
+                <a class="btn btn-light" href="/catalogo/subcategorias/{{$subcategoria->id}}"> {{$subcategoria->nombre}}</a>
 
             </div>
            
@@ -84,12 +92,13 @@
        
     </div>
 
-    <div class="categorias-links">
-        {{$categorias->links()}}
+    <div class="subcategorias-links">
+        <a class="btn btn-primary" href="/catalogo" style="margin-bottom: 2%;">Categorias</a>
+       {{$subcategorias->links()}}
     </div>
   
     <div class="productos-container ">
-        <h2>Productos</h2>
+        <h2 style="margin-bottom: 2%;">Productos <span class="title-categoria">{{$categoria->nombreCategoria}}</span></h2> 
         <div class="scrollbar">
 
             @foreach($productos as $producto)

@@ -7,24 +7,21 @@
 
     <style>
 
-        .categorias-container{
-            margin: 2%;
-            display: flex;
-            justify-content: space-around;
-            border: 1px solid #65e38f;
+        .categoria-container{
+            justify-content: space-between;
+            border: 1px solid #e8e8e8;
             border-radius: 10px;
-            padding: 1%;
-            background-color: #65e38f;
+            padding: 2%;
+            padding-bottom: 0;
+            background-color:  rgb(0, 255, 255);
             box-shadow: 5px 10px 18px #888888;
-
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            margin-bottom: 5%;
+            width: 50%;
         }
-
-        .categorias-links{
-
-            margin-top: 3%;
-            text-align: right;
-
-        }
+   
         .productos-container{
           
             margin-top: 4%;
@@ -61,6 +58,21 @@
             display: flex;
             justify-content: space-between;
         }
+        .title-subcategoria{
+            border: 1px solid #6fb7cb;
+            border-radius: 10px;
+            padding: 1%;
+            background-color: #6fb7cb;
+            text-transform: capitalize;
+        }
+        .title-categoria{
+            border: 1px solid #65e38f;
+            border-radius: 10px;
+            padding: 1%;
+            background-color: #65e38f;
+            text-transform: capitalize;
+            margin-bottom: 3%;
+        }
     </style>
 
 </head>
@@ -69,27 +81,16 @@
 
     <a href="/catalogo"><h1 style="text-align:center; margin-bottom: 2%;">Catálogo</h1></a>
 
-    <div class="categorias-container">
-         
-        @foreach($categorias as $categoria)
-    
-            <div class="categoria-item">
-
-                <a class="btn btn-light" href="/catalogo/categorias/{{$categoria->id}}"> {{$categoria->nombreCategoria}}</a>
-
-            </div>
-           
-        @endforeach
-             
+    <div class="categoria-container">
        
+        <a class="btn btn-primary" href="{{url()->previous()}}" style="margin-bottom: 4%;">Volver</a>
+
+        
+        <a class="btn title-categoria" href="/catalogo/categorias/{{$categoria->id}}">{{$categoria->nombreCategoria}}</a>
     </div>
 
-    <div class="categorias-links">
-        {{$categorias->links()}}
-    </div>
-  
     <div class="productos-container ">
-        <h2>Productos</h2>
+        <h2 style="margin-bottom: 2%;">Productos <span class="title-subcategoria">{{$subcategoria->nombre}}</span></h2> 
         <div class="scrollbar">
 
             @foreach($productos as $producto)
