@@ -3,7 +3,7 @@
 @section('content')
 
 <title>Modificar Pedido</title>
-<div class="encabezado">
+<div class="container">
     
     <div class="editar">
         <h1>Modificar Pedido</h1>

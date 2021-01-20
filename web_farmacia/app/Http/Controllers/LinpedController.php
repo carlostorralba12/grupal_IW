@@ -36,8 +36,14 @@ class LinpedController extends Controller
     public function deleteProducto($idProducto, $idPedido){
 
         DB::table('linpeds')->where('producto_id', $idProducto)-> where('pedido_id', $idPedido)->delete();
-       
-       
+        $total= DB::table('linpeds')-> where('pedido_id', $idPedido)->get();
+        if(count($total)==0){
+            DB::table('pedidos')-> where('id', $idPedido)->delete();
+        }
+        $user = auth()->user();
+        if($user->typeUser=="admin"){
+            return redirect('admin/pedidos');
+        }
         return redirect('pedidos');
 
     }
