@@ -24,6 +24,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -93,3 +97,10 @@ Route::middleware('admin')->group(function(){
     });
    
 });
+
+// Contacto
+Route::get('contacto', 'App\Http\Controllers\ContactoController@contacto');
+Route::post('contacto', [
+    'as'=>'contacto.store',
+    'uses'=>'App\Http\Controllers\ContactoController@contactoPost'
+]);
