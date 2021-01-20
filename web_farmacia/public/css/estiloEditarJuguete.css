@@ -1,0 +1,109 @@
+#principal{
+    width: 1250px;
+    height: auto;
+    margin: auto;  
+}
+
+header{
+    height: 140px;
+}
+.container h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 450px;
+
+}
+#logo{
+    float: right;
+    margin-top: 0px;
+    margin-right: 50px;
+}
+
+.menu{
+    text-decoration: none;
+    float: left;
+    width: 600px;
+    height: 50px;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.menu ul li{
+    list-style: none;
+    float: left;
+}
+
+input, textarea, select, button{
+    display: block;
+}
+select{
+    margin: 5px 0 30px 0;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    padding: 10px;
+    font-family: fantasy;
+    color: white;
+    background-color:rgb(41, 41, 223);
+    border: black solid 1px;
+}
+
+.menu ul li:hover a{
+    color: black;
+}
+
+#linea{
+    height: 3px;
+    background-color: black;
+}
+
+.editar h1{
+    font-family: fantasy;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 50px;
+}
+
+.editar input{
+    margin-bottom: 30px;
+}
+
+form{
+    margin: auto;
+    width: 300px;
+}
+
+p, label{
+    font-family: fantasy;
+    margin: auto;
+}
+
+#boton{
+    font-family: fantasy;
+    padding: 3px;
+}
+
+#boton1{
+    font-family: fantasy;
+    padding: 3px;
+    margin-left: 115px;
+    margin-bottom: 25px;
+}
+
+.pie p{
+    margin-top: 25px;
+    font-family: fantasy;
+}
+
+.editButton a{
+    color: black;
+}
+
+.container select{
+    float: left;
+}
+
+.container button{
+    float: left;
+}

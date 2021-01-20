@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductsTableSeeder::class);
         $this->call(CarritoTableSeeder::class);
         $this->call(FavoritosTableSeeder::class);
+        $this->call(PedidoSeeder::class);
+        $this->call(LinpedSeeder::class);
 
     }
 }

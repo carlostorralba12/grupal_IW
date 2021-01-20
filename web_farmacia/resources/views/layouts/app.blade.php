@@ -37,8 +37,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    
+
+                        <li class="nav-item">
+                                <a class="nav-link" href="/catalogo">
+                                <i class="fa fa-shopping-basket" aria-hidden="true"></i> {{ __('Catalogo') }}
+                            </a>
+                        </li>
                         @auth
+                        
+                            
                             @if(Auth::user()->typeUser == 'admin')
                             <div class="nav-item dropdown">
                                 
@@ -47,9 +54,9 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="adminDropdown">
-
+                                  
                                     <a class="dropdown-item" href="/admin/categorias">Catálogo</a>
-                                    <a class="dropdown-item" href="#">Pedidos</a>
+                                    <a class="dropdown-item" href="/admin/pedidos">Pedidos</a>
 
                                 </div>
                             </div>
@@ -78,6 +85,25 @@
                             @endif
                         @else
                             @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="/carrito">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> {{ __('Carrito') }}
+                                </a>
+
+                                
+                            </li>
+                            <li class="nav-item">
+                                
+                             <a class="nav-link" href="/favoritos"><i class="fa fa-heart" aria-hidden="true"></i> Favoritos</a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pedidos">
+                                    <i class="fas fa-align-justify" aria-hidden="true"></i> {{ __('Pedidos') }}
+                                </a>
+                            </li>
+                            
+                    
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                   <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}
@@ -87,7 +113,6 @@
                                     <a class="dropdown-item" href="/user/{{ Auth::user()->id }}">
                                         <i class="far fa-user" aria-hidden="true"></i> {{ __('Perfil') }}
                                     </a>
-
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
