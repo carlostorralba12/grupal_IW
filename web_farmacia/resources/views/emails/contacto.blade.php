@@ -38,7 +38,7 @@
         <div class="form-group {{ $errors->has('telefono') ? 'has-error' : '' }}">
             {!! Form::label('Teléfono:') !!}
             {!!  Form::text('telefono', old('telefono'), ['class'=>'form-control', 'placeholder'=>'Introduce tu teléfono de contacto']) !!}
-            <!--<span class="text-danger">{{ $errors->first('telefono') }}</span>-->
+            <span class="text-danger">{{ $errors->first('telefono') }}</span>
         </div>
 
         <div class="form-group {{ $errors->has('mensaje') ? 'has-error' : '' }}">
@@ -49,6 +49,16 @@
 
         <div class="form-group">
             <button class="btn btn-success">Enviar</button>
+        </div>
+        <div style="margin-top: 2%">
+            @if(!empty(session('success')))
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">
+                        &times;
+                    </button>
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
         {!! Form::close() !!}
 

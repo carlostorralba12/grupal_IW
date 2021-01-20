@@ -71,3 +71,10 @@ Route::post('contacto', [
     'as'=>'contacto.store',
     'uses'=>'App\Http\Controllers\ContactoController@contactoPost'
 ]);
+
+// Usuario
+Route::get('/user/{id}', 'App\Http\Controllers\UserController@getPerfilUsuario');
+Route::post('/user/{id}/delete', 'App\Http\Controllers\UserController@destroy');
+Route::get('/user/{id}/edit', 'App\Http\Controllers\UserController@getEditarUsuario');
+Route::post('/user/{id}/edit', 'App\Http\Controllers\UserController@update');
+Route::put('/user/{id}/edit', 'App\Http\Controllers\UserController@updatePassword');

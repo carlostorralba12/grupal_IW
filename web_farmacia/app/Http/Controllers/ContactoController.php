@@ -30,6 +30,6 @@ class ContactoController extends Controller
                 $mensaje->to('farmaciaiw@gmail.com', 'Admin')->subject('Contactado para consulta');
             });
 
-        return back()->with('success', '¡Gracias por contactarnos!');
+        return back()->with('success', 'Tu pregunta ha sido enviada. ¡Gracias por contactarnos!');
     }
 }
