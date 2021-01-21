@@ -18,28 +18,28 @@ class CarritoTableSeeder extends Seeder
     {
         DB::table('carrito')->delete();
         DB::table('carrito')->insert([
-            'producto_id' => Producto::where('nombre', 'paracetamol')->first()->id,
+            'producto_id' => Producto::where('nombre', 'Vichy Dercos Champú Estimulante Anticaída (200 ml)')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id,
             'cantidad' => 2
         ]);
 
         DB::table('carrito')->insert([
-            'producto_id' => Producto::where('nombre', 'gelocatil')->first()->id,
+            'producto_id' => Producto::where('nombre', 'Ducray Anaphase Champu Crema Estimulante (150 ml)')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id,
             'cantidad' => 1,
         ]);
         DB::table('carrito')->insert([
-            'producto_id' => Producto::where('nombre', 'couldina')->first()->id,
+            'producto_id' => Producto::where('nombre', 'Just for Men Colorante en Champú H-25 Castaño Claro (30 ml)')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id,
             'cantidad' => 1,
         ]);
         DB::table('carrito')->insert([
-            'producto_id' => Producto::where('nombre', 'geniol')->first()->id,
+            'producto_id' => Producto::where('nombre', 'Bioderma Nodé DS+ Champú Anticaspa (150 ml)')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id,
             'cantidad' => 1
         ]);
         DB::table('carrito')->insert([
-            'producto_id' => Producto::where('nombre', 'ibuprofeno')->first()->id,
+            'producto_id' => Producto::where('nombre', 'LetiAT4 Champú Piel Atópica (250 ml)')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id,
             'cantidad' => 2
         ]);
