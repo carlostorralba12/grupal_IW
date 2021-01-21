@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function(){
     Route::get('carrito/cantidad/añadir/{id}', 'App\Http\Controllers\CarritoController@addCantidad');
     Route::get('carrito/cantidad/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteCantidad');
     Route::get('carrito/producto/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteProducto');
+    Route::get('carrito/comprar', 'App\Http\Controllers\CarritoController@addToPedido');
     //Pedidos
     Route::get('linped', 'App\Http\Controllers\LinpedController@showLinped');
     Route::get('linped/producto/eliminar/{idProducto}/{idPedido}', 'App\Http\Controllers\LinpedController@deleteProducto');

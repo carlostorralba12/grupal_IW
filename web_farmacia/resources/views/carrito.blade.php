@@ -174,7 +174,14 @@
                 </div>
               
             </div>
-        
+            <div class="card-footer text-muted producto-footer">
+                        
+                        @auth
+                            <a class="btn btn-warning" href="/carrito/comprar">Comprar</a>
+                            
+                        @endauth
+
+            </div>
         </div>
             
     </div>
