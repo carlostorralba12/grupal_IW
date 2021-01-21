@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Producto;
+use DateTime;
 
 class CarritoController extends Controller
 {
@@ -56,6 +57,19 @@ class CarritoController extends Controller
         return $total;
 
     }
+    public static function calcularTotal2($productos){
+
+        $total = 0.0;
+        $i = 0;
+        foreach($productos as $producto){
+            $total += $producto->importe * $producto->cantidad; 
+
+            
+        }
+
+        return $total;
+
+    }
 
     public function deleteProducto($id){
 
@@ -89,6 +103,48 @@ class CarritoController extends Controller
        
         
         return redirect('carrito');
+
+    }
+    public function addToPedido(){
+
+        $user = Auth::user();
+        $carritoUser = DB::table('carrito')->where('user_id', $user->id)->get();
+        $date = new DateTime();
+        $aleatorio = rand();
+        while(true){
+            $comprobar = DB::table('pedidos')->where('numpedido', $aleatorio)->first();
+            if($comprobar == NULL){
+            break;
+            }
+            $aleatorio = rand();
+        }
+
+    
+        
+            DB::table('pedidos')->insert([
+                'numpedido' => $aleatorio,
+                'fecha' => $date->format('d-m-Y'),
+                'estado' => "pendiente",
+                'user_id' => $user->id,
+            ]);  
+            $pedidoActual=DB::table('pedidos')->where('numpedido', $aleatorio)->first();
+
+            foreach($carritoUser as $carrito){
+                $productoCarrito = DB::table('productos')->where('id', $carrito->producto_id)->first(); 
+                DB::table('linpeds')->insert([
+                    'importe' => $productoCarrito->pvp,
+                    'cantidad' => $carrito->cantidad,
+                    'producto_id' => $productoCarrito->id,
+                    'pedido_id' => $pedidoActual->id,
+                ]);
+                DB::table('carrito')->where('user_id', $user->id)->where('producto_id', $productoCarrito->id)->delete();
+            }
+                
+            
+        
+        
+       
+        return redirect('pedidos');
 
     }
 }

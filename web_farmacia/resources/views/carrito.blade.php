@@ -167,14 +167,14 @@
 
                     <div style="text-align: right; width: 50%">
 
-                        <button type="button" class="btn btn-primary">Comprar</button>
+                        <a type="button" class="btn btn-primary" href="/carrito/comprar">Comprar</a>
 
                     </div>
                 @endif
                 </div>
               
             </div>
-        
+            
         </div>
             
     </div>

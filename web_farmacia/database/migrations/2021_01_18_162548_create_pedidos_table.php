@@ -15,7 +15,7 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('numpedido');
+            $table->integer('numpedido')->unique();
             $table->string('fecha');
             $table->string('estado');
             $table->unsignedBigInteger('user_id');
