@@ -18,7 +18,7 @@ class FavoritosTableSeeder extends Seeder
     {
         DB::table('favoritos')->delete();
         DB::table('favoritos')->insert([
-            'producto_id' => Producto::where('nombre', 'ibuprofeno')->first()->id,
+            'producto_id' => Producto::where('nombre', 'LetiAT4 Champú Piel Atópica (250 ml)')->first()->id,
             'user_id' => User::where('email', 'admin@admin')->first()->id
         ]);
     }
