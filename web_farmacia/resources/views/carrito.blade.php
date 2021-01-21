@@ -167,21 +167,14 @@
 
                     <div style="text-align: right; width: 50%">
 
-                        <button type="button" class="btn btn-primary">Comprar</button>
+                        <a type="button" class="btn btn-primary" href="/carrito/comprar">Comprar</a>
 
                     </div>
                 @endif
                 </div>
               
             </div>
-            <div class="card-footer text-muted producto-footer">
-                        
-                        @auth
-                            <a class="btn btn-warning" href="/carrito/comprar">Comprar</a>
-                            
-                        @endauth
-
-            </div>
+            
         </div>
             
     </div>
