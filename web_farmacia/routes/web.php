@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function(){
     Route::get('carrito/cantidad/añadir/{id}', 'App\Http\Controllers\CarritoController@addCantidad');
     Route::get('carrito/cantidad/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteCantidad');
     Route::get('carrito/producto/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteProducto');
+    Route::get('carrito/comprar', 'App\Http\Controllers\CarritoController@addToPedido');
     //Pedidos
     Route::get('linped', 'App\Http\Controllers\LinpedController@showLinped');
     Route::get('linped/producto/eliminar/{idProducto}/{idPedido}', 'App\Http\Controllers\LinpedController@deleteProducto');
@@ -125,3 +126,10 @@ Route::post('contacto', [
     'as'=>'contacto.store',
     'uses'=>'App\Http\Controllers\ContactoController@contactoPost'
 ]);
+
+// Usuario
+Route::get('/user/{id}', 'App\Http\Controllers\UserController@getPerfilUsuario');
+Route::post('/user/{id}/delete', 'App\Http\Controllers\UserController@destroy');
+Route::get('/user/{id}/edit', 'App\Http\Controllers\UserController@getEditarUsuario');
+Route::post('/user/{id}/edit', 'App\Http\Controllers\UserController@update');
+Route::put('/user/{id}/edit', 'App\Http\Controllers\UserController@updatePassword');

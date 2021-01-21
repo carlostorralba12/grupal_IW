@@ -67,6 +67,11 @@
             text-align: center;
             margin: 20% 15%;
         }
+        .initial-header {
+            display:flex;
+            justify-content: space-between;
+            font-size: 25px;
+        }
 
     </style>
 
@@ -95,8 +100,11 @@
 
         <div class="card">
 
-            <div class="card-header" style="font-size: 25px;">
+            <div class="card-header initial-header">
                 <span><b>Carrito <i class="fa fa-shopping-cart" aria-hidden="true"></i></b></span>
+                @if(count($productos) > 0)
+                 <a class="btn btn-info" href="/catalogo"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Seguir comprando</a>
+                 @endif
             </div>
 
             <div class="card-body">
@@ -121,13 +129,14 @@
                     </div>
 
                     <div class="card-body">
+                        <a href="/catalogo/productos/{{$productos[$i]->id}}">
+                            <div class="header-producto">
 
-                        <div class="header-producto">
+                                <img src="{{asset('images/productos/'. $productos[$i]->imagen)}}" class="image-product">
+                                <span style="margin: auto 0;">{{$productos[$i]->descripcionCorta}}</span>
 
-                            <img src="{{asset('images/productos/'. $productos[$i]->imagen)}}" class="image-product">
-                            <span style="margin: auto 0;">{{$productos[$i]->descripcionCorta}}</span>
-
-                        </div>
+                            </div>
+                        </a>
 
                         <div class="footer-producto">
 
@@ -156,7 +165,7 @@
             <div class="card-footer">
 
                 <div style="display: flex; justify-content: space-between;">
-                @if(count($productos) > 1)
+                @if(count($productos) > 0)
                     <div style="text-align: left; width: 50%;">
                   
                         <span style="font-size: 20px;"><b>Total: </b></span>
@@ -167,14 +176,14 @@
 
                     <div style="text-align: right; width: 50%">
 
-                        <button type="button" class="btn btn-primary">Comprar</button>
+                        <a type="button" class="btn btn-primary" href="/carrito/comprar">Comprar</a>
 
                     </div>
                 @endif
                 </div>
               
             </div>
-        
+            
         </div>
             
     </div>

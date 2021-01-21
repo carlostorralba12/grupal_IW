@@ -83,7 +83,7 @@
 
     <div class="categoria-container">
        
-        <a class="btn btn-primary" href="{{url()->previous()}}" style="margin-bottom: 4%;">Volver</a>
+        <a class="btn btn-primary"href="/catalogo/categorias/{{$categoria->id}}" style="margin-bottom: 4%;">Volver</a>
 
         
         <a class="btn title-categoria" href="/catalogo/categorias/{{$categoria->id}}">{{$categoria->nombreCategoria}}</a>

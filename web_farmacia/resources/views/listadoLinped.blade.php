@@ -79,7 +79,7 @@
         <div class="card">
 
             <div class="card-header" style="font-size: 25px;">
-                <span><b>Detalles del pedido {{$NPedido +1}} </b></span>
+                <span><b>Detalles del pedido {{$pedido->numpedido }} </b></span>
             </div>
 
             <div class="card-body">
@@ -93,8 +93,16 @@
                     <div class="card-header card-producto-header">
 
                         <span style="padding-top: 1%;"><b>{{$producto->nombre}}</b></span>
+                        @if($pedido->estado =="pendiente")
                         <a class="btn btn-warning" href="/linped/producto/eliminar/{{$producto->id}}/{{$NPedido}}">Quitar del pedido</a>
-
+                        @else
+                            @if($user->typeUser=="admin")
+                                <a class="btn btn-warning" href="/linped/producto/eliminar/{{$producto->id}}/{{$NPedido}}">Quitar del pedido</a>
+                                <a class="btn btn-warning" >El pedido del usuario está  {{$pedido->estado}}</a>
+                            @else
+                            <a class="btn btn-warning" >Su pedido está  {{$pedido->estado}}</a>  
+                            @endif
+                        @endif
                     </div>
 
                     <div class="card-body">
@@ -133,17 +141,17 @@
             <div class="card-footer">
 
                 <div style="display: flex; justify-content: space-between;">
-                @if(count($productos) > 1)
+                
                     <div style="text-align: left; width: 50%;">
                   
                         <span style="font-size: 20px;"><b>Total: </b></span>
 
-                        <span class="total-importe">{{App\Http\Controllers\CarritoController::calcularTotal($productos)}} €</span>
+                        <span class="total-importe">{{App\Http\Controllers\CarritoController::calcularTotal2($linpeds)}} €</span>
                     
                     </div>
 
                     
-                @endif
+                
                 </div>
               
             </div>

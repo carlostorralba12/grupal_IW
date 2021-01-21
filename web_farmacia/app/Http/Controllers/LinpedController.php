@@ -21,8 +21,10 @@ class LinpedController extends Controller
     }
     public function showLinped(Request $request){
         $variable = $request->input('primaria');    
-        $NPedido = $request->input('primaria');  
+        
+        $user = auth()->user();
         $linpeds= DB::table('linpeds')->where('pedido_id', $variable)->get();
+        $Pedido= DB::table('pedidos')->where('id', $variable)->first();
         $productos = array();
 
         foreach($linpeds as $productoID){
@@ -31,7 +33,7 @@ class LinpedController extends Controller
         }
 
         
-        return view('listadoLinped', ['NPedido' => $NPedido], ['productos' => $productos])->with('linpeds', $linpeds);
+        return view('listadoLinped', ['NPedido' => $variable], ['productos' => $productos])->with('linpeds', $linpeds)->with('pedido', $Pedido)->with('user', $user);
     }
     public function deleteProducto($idProducto, $idPedido){
 
