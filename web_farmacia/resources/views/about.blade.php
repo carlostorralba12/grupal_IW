@@ -3,7 +3,7 @@
 @section('content')
 
 <head>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+   
     <style>
         h1{
             font-weight: bold;
@@ -63,16 +63,16 @@
             <br>
             <div class="centrado" style="display: flex;">
                 <a href="https://www.facebook.com/" style="cursor: pointer">
-                    <i style="font-size:30px" class="fab fa-facebook"></i>
+                    <i style="font-size:30px" class="fa fa-facebook-official"></i>
                 </a>&nbsp&nbsp
                 <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
-                    <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
+                    <i style="font-size:30px; color:red" class="fa fa-youtube-play"></i>
                 </a>&nbsp&nbsp
                 <a href="https://www.instagram.com/" style="cursor: pointer">
-                    <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
+                    <i style="font-size:30px; color:black" class="fa fa-instagram"></i>
                 </a>&nbsp&nbsp
                 <a href="https://twitter.com/" style="cursor: pointer">
-                    <i style="font-size:30px;" class="fab fa-twitter"></i>
+                    <i style="font-size:30px;" class="fa fa-twitter"></i>
                 </a>
             </div>
             <span style="padding-top: 1%"></span>
@@ -87,17 +87,17 @@
             <hr class="featurette-divider margen">
             <br>
             <div class="centrado" style="display: flex; align-items: center;">
-                <a href="https://www.facebook.com/" style="cursor: pointer">
-                    <i style="font-size:30px" class="fab fa-facebook"></i>
+            <a href="https://www.facebook.com/" style="cursor: pointer">
+                    <i style="font-size:30px" class="fa fa-facebook-official"></i>
                 </a>&nbsp&nbsp
                 <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
-                    <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
+                    <i style="font-size:30px; color:red" class="fa fa-youtube-play"></i>
                 </a>&nbsp&nbsp
                 <a href="https://www.instagram.com/" style="cursor: pointer">
-                    <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
+                    <i style="font-size:30px; color:black" class="fa fa-instagram"></i>
                 </a>&nbsp&nbsp
                 <a href="https://twitter.com/" style="cursor: pointer">
-                    <i style="font-size:30px;" class="fab fa-twitter"></i>
+                    <i style="font-size:30px;" class="fa fa-twitter"></i>
                 </a>
             </div>
             <span style="padding-top: 1%"></span>
@@ -112,17 +112,17 @@
             <hr class="featurette-divider margen">
             <br>
             <div class="centrado" style="display: flex; align-items: center;">
-                <a href="https://www.facebook.com/" style="cursor: pointer">
-                    <i style="font-size:30px" class="fab fa-facebook"></i>
+            <a href="https://www.facebook.com/" style="cursor: pointer">
+                    <i style="font-size:30px" class="fa fa-facebook-official"></i>
                 </a>&nbsp&nbsp
                 <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
-                    <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
+                    <i style="font-size:30px; color:red" class="fa fa-youtube-play"></i>
                 </a>&nbsp&nbsp
                 <a href="https://www.instagram.com/" style="cursor: pointer">
-                    <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
+                    <i style="font-size:30px; color:black" class="fa fa-instagram"></i>
                 </a>&nbsp&nbsp
                 <a href="https://twitter.com/" style="cursor: pointer">
-                    <i style="font-size:30px;" class="fab fa-twitter"></i>
+                    <i style="font-size:30px;" class="fa fa-twitter"></i>
                 </a>
             </div>
             <span style="padding-top: 1%"></span>

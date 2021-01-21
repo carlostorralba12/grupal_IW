@@ -2,7 +2,7 @@
 
 @section('content')
 <head>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+   
     <style>
         h1{
             font-weight: bold;
@@ -75,16 +75,16 @@
             <div style="display: flex; align-items: center; justify-content:center">
                 <h5><strong>Redes sociales:</strong></h5>&nbsp&nbsp&nbsp&nbsp
                 <a href="https://www.facebook.com/" style="cursor: pointer">
-                    <i style="font-size:30px;" class="fab fa-facebook"></i>
+                    <i style="font-size:30px;" class="fa fa-facebook-official"></i>
                 </a>&nbsp&nbsp&nbsp&nbsp
                 <a href="https://www.youtube.com/?reload=9" style="cursor: pointer">
-                    <i style="font-size:30px; color:red" class="fab fa-youtube"></i>
+                    <i style="font-size:30px; color:red" class="fa fa-youtube-play"></i>
                 </a>&nbsp&nbsp&nbsp&nbsp
                 <a href="https://www.instagram.com/" style="cursor: pointer">
-                    <i style="font-size:30px; color:black" class="fab fa-instagram"></i>
+                    <i style="font-size:30px; color:black"  class="fa fa-instagram"></i>
                 </a>&nbsp&nbsp&nbsp&nbsp
                 <a href="https://twitter.com/" style="cursor: pointer">
-                    <i style="font-size:30px;" class="fab fa-twitter"></i>
+                    <i style="font-size:30px;"class="fa fa-twitter"></i>
                 </a>
             </div>
         </div>

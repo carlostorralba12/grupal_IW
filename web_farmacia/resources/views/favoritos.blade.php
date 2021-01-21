@@ -68,6 +68,12 @@
             margin: 20% 15%;
         }
 
+        .initial-header {
+            display:flex;
+            justify-content: space-between;
+            font-size: 25px;
+        }
+
     </style>
 
 </head>
@@ -95,8 +101,11 @@
 
         <div class="card">
 
-            <div class="card-header" style="font-size: 25px;">
+            <div class="card-header initial-header">
                 <span><b><i class="fa fa-heart" aria-hidden="true"></i> Favoritos</b></span>
+                @if(count($productos) > 0)
+                 <a class="btn btn-info" href="/catalogo"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Añade productos</a>
+                @endif
             </div>
 
             <div class="card-body">
@@ -122,12 +131,14 @@
 
                     <div class="card-body">
 
-                        <div class="header-producto">
+                        <a href="/catalogo/productos/{{$producto->id}}">
+                            <div class="header-producto">
 
-                            <img src="{{asset('images/productos/'. $producto->imagen)}}" class="image-product">
-                            <span style="margin: auto 0;">{{$producto->descripcionCorta}}</span>
+                                <img src="{{asset('images/productos/'. $producto->imagen)}}" class="image-product">
+                                <span style="margin: auto 0;">{{$producto->descripcionCorta}}</span>
 
-                        </div>
+                            </div>
+                        </a>
 
                         <div class="footer-producto">
                           

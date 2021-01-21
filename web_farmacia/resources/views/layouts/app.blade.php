@@ -99,7 +99,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/pedidos">
-                                    <i class="fas fa-align-justify" aria-hidden="true"></i> {{ __('Pedidos') }}
+                                    <i class="fa fa-align-justify" aria-hidden="true"></i> {{ __('Pedidos') }}
                                 </a>
                             </li>
                             
@@ -111,7 +111,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/user/{{ Auth::user()->id }}">
-                                        <i class="far fa-user" aria-hidden="true"></i> {{ __('Perfil') }}
+                                        <i class="fa fa-user-o" aria-hidden="true"></i> {{ __('Perfil') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
