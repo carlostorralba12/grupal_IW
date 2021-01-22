@@ -146,7 +146,6 @@ class CatalogoController extends Controller
         }
         $producto = Producto::find($productoID);
         if($existsProduct){
-            var_dump('gol');
             return back()->with('error', $producto->nombre);
         }
         else{
