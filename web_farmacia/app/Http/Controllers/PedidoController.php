@@ -38,7 +38,7 @@ class PedidoController extends Controller
     }
     public function getPedidos(){
         $pedidos=Pedido::paginate(10);
-        return view('admin.catalogo.pedido', ['pedidos' => $pedidos]);
+        return view('admin.pedido.pedido', ['pedidos' => $pedidos]);
         
         
     }
@@ -56,7 +56,7 @@ class PedidoController extends Controller
         $aux = $request->input('primaria');
         $pedidos= Pedido::find($aux);
         
-        return view('admin.catalogo.modificarPedido', ['pedidos' => $pedidos]);
+        return view('admin.pedido.modificarPedido', ['pedidos' => $pedidos]);
     }
     public function postPedidoModificar(Request $request){
             

@@ -77,7 +77,7 @@
 
     <div class="buttons-footer">
        
-        <a class="btn btn-info" style="background-color: #89f07f; text-transform: capitalize" href="/admin/categorias/{{$subcategoria->categoria_id}}">
+        <a class="btn btn-info" style="background-color: #89f07f; text-transform: capitalize; margin-bottom: 2%;" href="/admin/categorias/{{$subcategoria->categoria_id}}">
   
             {{App\Models\Categoria::find($subcategoria->categoria_id)->nombreCategoria}}
         </a>

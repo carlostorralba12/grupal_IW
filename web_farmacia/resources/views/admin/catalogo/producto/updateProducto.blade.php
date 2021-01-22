@@ -205,7 +205,7 @@
 
       <div class="card-footer text-muted">
 
-        <a id="cancelar" class="btn btn-secondary" href="{{ url()->previous() }}">Cancelar</a>
+        <a id="cancelar" class="btn btn-secondary" href="/admin/productos/{{ $producto->id }}">Cancelar</a>
           <!--button type="button" id="cancelar" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.reload();">Cancelar</button-->
         <button type="submit" class="btn btn-primary">Confirmar</button>
 

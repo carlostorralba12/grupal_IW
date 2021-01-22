@@ -162,7 +162,7 @@ class CatalogoController extends Controller
         $request->validate([
             'nombre' => 'required|unique:productos',
             'pvp' => 'required|numeric',
-            'referencia' => 'required|integer|max:99999|min:0',
+            'referencia' => 'required|string|max:5|min:5',
             'descripcionCorta' => 'required|max:255',
             'descripcionLarga' => 'required|max:255',
             'subcategoriaID' => 'required|integer',
@@ -222,7 +222,7 @@ class CatalogoController extends Controller
         $request->validate([
             'nombre' => 'required|unique:productos',
             'pvp' => 'required|numeric',
-            'referencia' => 'required|integer|max:99999|min:0',
+            'referencia' => 'required|string|max:5|min:5',
             'descripcionCorta' => 'required|max:255',
             'descripcionLarga' => 'required|max:255',
             'subcategoriaID' => 'required|integer',

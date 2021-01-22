@@ -4,7 +4,8 @@
 <title>Listado pedido</title>
 
 <div class="container">
-   
+    <a href="/admin/pedidos/"> <h2 style="text-align: center; margin: 2%">Mis pedidos</h2></a>
+
     <table class="table table-dark table-striped table-hover table-sm">
     <tr>
         

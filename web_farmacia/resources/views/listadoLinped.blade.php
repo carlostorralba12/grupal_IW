@@ -141,16 +141,16 @@
             <div class="card-footer">
 
                 <div style="display: flex; justify-content: space-between;">
+
+                    <a class="btn btn-primary" href="{{url()->previous()}}">Volver</a>
                 
-                    <div style="text-align: left; width: 50%;">
+                    <div style="text-align: right; width: 50%;">
                   
                         <span style="font-size: 20px;"><b>Total: </b></span>
 
                         <span class="total-importe">{{App\Http\Controllers\CarritoController::calcularTotal2($linpeds)}} €</span>
                     
                     </div>
-
-                    
                 
                 </div>
               

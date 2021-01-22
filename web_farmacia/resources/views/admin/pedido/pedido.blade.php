@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<title>Listado pedido</title>
+
 <link rel="stylesheet" type="text/css" href="css/estiloEditarJuguete.css">
 <div class="container">
-    
+   <a href="/admin/pedidos/"> <h2 style="text-align: center; margin: 2%">Administración de pedidos</h2></a>
+
     <table class="table table-dark table-striped table-hover table-sm">
     <tr>
         <th>Id del pedido</th>

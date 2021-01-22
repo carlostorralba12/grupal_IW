@@ -39,7 +39,7 @@
 
       <div class="card-footer text-muted">
       
-        <a id="cancelar" class="btn btn-secondary" href="{{ url()->previous() }}">Cancelar</a>
+        <a id="cancelar" class="btn btn-secondary" href="/admin/categorias/{{ $categoria->id }}">Cancelar</a>
         <button type="submit" class="btn btn-primary">Confirmar</button>
 
       </div>

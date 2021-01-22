@@ -85,8 +85,9 @@ Route::middleware('auth')->group(function(){
  *                                      ADMIN
  ***********************************************************************************/ 
 Route::middleware('admin')->group(function(){
-    // CATEGORIAS
+    
     Route::prefix('admin')->group(function(){
+        // CATEGORIAS
         Route::get('categorias', 'App\Http\Controllers\Admin\CatalogoController@getCategorias');
         Route::get('categorias/añadir', 'App\Http\Controllers\Admin\CatalogoController@ShowFormAddCategoria');
         Route::post('categorias', 'App\Http\Controllers\Admin\CatalogoController@saveCategoria');

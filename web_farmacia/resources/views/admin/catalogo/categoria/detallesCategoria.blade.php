@@ -77,7 +77,7 @@
 
     <div class="buttons-footer">
         
-        <a class="btn btn-info" style="background-color: #38A641" href="/admin/categorias/">Categorias</a>
+        <a class="btn btn-info" style="background-color: #38A641; margin-bottom: 2%" href="/admin/categorias/">Categorias</a>
         {{$subcategorias->links()}}
     </div>
    
