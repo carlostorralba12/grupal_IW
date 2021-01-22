@@ -30,13 +30,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('pedidos', 'App\Http\Controllers\PedidoController@showPedido');
-Route::post('borrar_pedido', 'App\Http\Controllers\PedidoController@postPedidoBorrado');
-Route::get('linpeds', 'App\Http\Controllers\LinpedController@showLinpeds');
-
-Route::post('borrar_linped', 'App\Http\Controllers\LinpedController@postLinpedBorrada');
-
-
 
 //CATALOGO
 Route::prefix('catalogo')->group(function(){
@@ -61,6 +54,8 @@ Route::middleware('auth')->group(function(){
     Route::get('linped/producto/eliminar/{idProducto}/{idPedido}', 'App\Http\Controllers\LinpedController@deleteProducto');
     Route::get('linped/cantidad/añadir/{idProducto}/{idPedido}', 'App\Http\Controllers\LinpedController@addCantidad');
     Route::get('linped/cantidad/eliminar/{idProducto}/{idPedido}', 'App\Http\Controllers\LinpedController@deleteCantidad');
+    Route::get('pedidos', 'App\Http\Controllers\PedidoController@showPedido');
+    Route::post('borrar_pedido', 'App\Http\Controllers\PedidoController@postPedidoBorrado');
     Route::prefix('carrito')->group(function(){
         Route::get('', 'App\Http\Controllers\CarritoController@getProductosCarrito');
         Route::get('cantidad/añadir/{id}', 'App\Http\Controllers\CarritoController@addCantidad');
@@ -68,6 +63,8 @@ Route::middleware('auth')->group(function(){
         Route::get('producto/eliminar/{id}', 'App\Http\Controllers\CarritoController@deleteProducto');
 
     });
+    Route::get('linpeds', 'App\Http\Controllers\LinpedController@showLinpeds');
+    Route::post('borrar_linped', 'App\Http\Controllers\LinpedController@postLinpedBorrada');
 
     //FAVORITOS
     Route::prefix('favoritos')->group(function(){
